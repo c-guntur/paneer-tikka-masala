@@ -1,0 +1,9 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" name="SolutionPaneerTikkaMasala" type="Application" factoryName="Application" nameIsGenerated="true">
+    <option name="MAIN_CLASS_NAME" value="none.cgutils.recipe.paneer.tikka.SolutionPaneerTikkaMasala" />
+    <module name="paneer-tikka-masala" />
+    <method v="2">
+      <option name="Make" enabled="true" />
+    </method>
+  </configuration>
+</component>

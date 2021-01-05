@@ -1,0 +1,245 @@
+[yellow]#Here goes the Paneer Tikka Masala !!!#
+
+[green]#INFO# ☑️ [aqua]#Check Ingredients#: Paneer (Indian Cottage Cheese)/Firm Tofu - 250g (½ lb)
+
+[green]#INFO# ☑️ [aqua]#Check Ingredients#: Unsweetened Yogurt - 3 tablespoons
+
+[green]#INFO# ☑️ [aqua]#Check Ingredients#: Ginger - ½ inch-long portion (or if crushed or paste - ½ teaspoon)
+
+[green]#INFO# ☑️ [aqua]#Check Ingredients#: Garlic - 3 cloves of Garlic (or if crushed or paste - 1½ teaspoon)
+
+[green]#INFO# ☑️ [aqua]#Check Ingredients#: Coriander (cilantro seed) Powder - 1 teaspoon
+
+[green]#INFO# ☑️ [aqua]#Check Ingredients#: Salt - 2 teaspoons
+
+[green]#INFO# ☑️ [aqua]#Check Ingredients#: Red Onion - 1 medium-sized or 1 large
+
+[green]#INFO# ☑️ [aqua]#Check Ingredients#: Tomatoes - 4 medium-sized  or equivalent in other sizes
+
+[green]#INFO# ☑️ [aqua]#Check Ingredients#: Cumin Seeds - ½ teaspoon
+
+[green]#INFO# ☑️ [aqua]#Check Ingredients#: Cinnamon - 1 stick or ½ teaspoon if powder
+
+[green]#INFO# ☑️ [aqua]#Check Ingredients#: Curry Powder - 1½ teaspoons
+
+[green]#INFO# ☑️ [aqua]#Check Ingredients#: Sugar - 1 tablespoon
+
+[green]#INFO# ☑️ [aqua]#Check Ingredients#: Cream - 2 tablespoons
+
+[green]#INFO# ☑️ [aqua]#Check Ingredients#: Cilantro Leaves - 5 stems, if pre-chopped, 2 tablespoons
+
+[green]#INFO# ☑️ [aqua]#Check Ingredients#: Water - 1 cup
+
+[green]#INFO# ☑️ [aqua]#Check Ingredients#: Oil - 1 tablespoon
+
+[green]#INFO# ☑️ [aqua]#Check Ingredients#: Butter - 1 tablespoon or equivalent
+
+[green]#INFO# ☑️ [aqua]#Check Ingredients#: Lemon Juice - to taste
+
+[green]#INFO# ☑️ [aqua]#Check Ingredients#: Red Chilli Powder - ½ teaspoon
+
+[yellow]#WARN# ☑️ [aqua]#Check Ingredients#: Paprika Powder not found
+
+[yellow]#WARN# ☑️ [aqua]#Check Ingredients#: Uh oh ... No Garam Masala ... Going to the store !!!
+
+[green]#INFO# ☑️ [aqua]#Dishwasher Running ...#: Dishwasher running
+
+[green]#INFO# ⏰ Check Ingredients#: [green]#Store trip for Garam Masala: Waiting for 30 minutes
+
+[green]#INFO# ☑️ [aqua]#Dishwasher Running ...#: Dishwasher running
+
+[green]#INFO# ☑️ [aqua]#Dishwasher Running ...#: Dishwasher running
+
+[green]#INFO# ⏰ Check Ingredients: [green]#Store trip for Garam Masala: Done !
+
+[green]#INFO# ☑️ [aqua]#Dishwasher Running ...#: Dishwasher running
+
+[green]#INFO# ☑️ [aqua]#Ingredient Bought!#: Returned from the store in 40m 32.616s
+
+[green]#INFO# ☑️ [aqua]#Check Ingredients#: Garam Masala (mixed Indian spices) - ½ teaspoon
+
+[green]#INFO# 🍲 [red]#Paneer Tikka#: Making the Paneer Tikka
+
+[green]#INFO# 🍲 [red]#Paneer Tikka#: Chopping the main ingredients for Paneer Tikka
+
+[green]#INFO# 🍲 [red]#Paneer Tikka#: Chopping Paneer
+
+[green]#INFO# ⏰ Paneer Tikka: [green]#Chopping Paneer#: Waiting for 5 minutes
+
+[green]#INFO# ⏰ Paneer Tikka: [green]#Chopping Paneer#: Done !
+
+[green]#INFO# 🍲 [red]#Paneer Tikka#: Chopping Ginger
+
+[green]#INFO# ⏰ Paneer Tikka: [green]#Chopping Ginger#: Waiting for 3 minutes
+
+[green]#INFO# ⏰ Paneer Tikka: [green]#Chopping Ginger#: Done !
+
+[green]#INFO# 🍲 [red]#Paneer Tikka#:  Chopping Garlic
+
+[green]#INFO# ⏰ Paneer Tikka: [green]#Chopping Garlic#: Waiting for 3 minutes
+
+[green]#INFO# ⏰ Paneer Tikka: [green]#Chopping Garlic#: Done !
+
+[green]#INFO# 🍲 [red]#Paneer Tikka#: Completed chopping paneer, ginger and garlic
+
+[green]#INFO# 🍲 [red]#Paneer Tikka#: Set a mixing bowl
+
+[green]#INFO# 🍲 [red]#Paneer Tikka#: Added paneer cubes, ginger pieces and garlic chunks
+
+[green]#INFO# 🍲 [red]#Paneer Tikka#: Added coriander (cilantro seed) powder, garam masala powder, salt, red chilli powder
+
+[green]#INFO# 🍲 [red]#Paneer Tikka#: Added yogurt
+
+[green]#INFO# ⏰ Paneer Tikka: [green]#Mixing Tikka ingredients#: Waiting for 5 minutes
+
+[green]#INFO# ⏰ Paneer Tikka: [green]#Mixing Tikka ingredients#: Done !
+
+[green]#INFO# 🥣 [fuchsia]#Masala#: Making the Masala
+
+[green]#INFO# 🍲 [red]#Paneer Tikka#: Starting marination
+
+[green]#INFO# 🍲 [red]#Paneer Tikka#: Covered mixing bowl
+
+[green]#INFO# 🍲 [red]#Paneer Tikka#: Refrigerated for 30 min
+
+[green]#INFO# ⏰ Paneer Tikka: [green]#Marination time#: Waiting for 30 minutes
+
+[green]#INFO# 🥣 [fuchsia]#Masala#: Chopping Onions
+
+[green]#INFO# ⏰ Masala: [green]#Chopping Onions#: Waiting for 3 minutes
+
+[green]#INFO# 🥣 [fuchsia]#Masala#: Chopping Garlic
+
+[green]#INFO# ⏰ Masala: [green]#Chopping Garlic#: Waiting for 3 minutes
+
+[green]#INFO# 🥣 [fuchsia]#Masala#: Chopping Ginger
+
+[green]#INFO# ⏰ Masala: [green]#Chopping Ginger#: Waiting for 3 minutes
+
+[green]#INFO# 🥣 [fuchsia]#Masala#: Chopping Tomatoes
+
+[green]#INFO# ⏰ Masala: [green]#Chopping Tomatoes#: Waiting for 3 minutes
+
+[green]#INFO# ⏰ Masala: [green]#Chopping Onions#: Done !
+
+[green]#INFO# 🥣 [fuchsia]#Masala#: Chopping the main ingredients for Paneer Tikka
+
+[green]#INFO# 🥣 [fuchsia]#Masala#: Chopped Onions
+
+[green]#INFO# ⏰ Masala: [green]#Chopping Ginger#: Done !
+
+[green]#INFO# ⏰ Masala: [green]#Chopping Garlic#: Done !
+
+[green]#INFO# ⏰ Masala: [green]#Chopping Tomatoes#: Done !
+
+[green]#INFO# 🥣 [fuchsia]#Masala#: Chopped Garlic
+
+[green]#INFO# 🥣 [fuchsia]#Masala#: Chopped Ginger
+
+[green]#INFO# 🥣 [fuchsia]#Masala#: Chopped Tomatoes
+
+[green]#INFO# 🥣 [fuchsia]#Masala#: Completed chopping paneer, ginger, garlic and tomatoes
+
+[green]#INFO# 🥣 [fuchsia]#Masala#: Heating Butter and Oil in a pan
+
+[green]#INFO# ⏰ Masala: [green]#Heating Butter & Oil#: Waiting for 5 minutes
+
+[green]#INFO# ⏰ Masala: [green]#Heating Butter & Oil#: Done !
+
+[green]#INFO# 🥣 [fuchsia]#Masala#: Done heating Butter & Oil
+
+[green]#INFO# 🥣 [fuchsia]#Masala#: Added Cumin and Cinnamon to the pan
+
+[green]#INFO# ⏰ Masala: [green]#Waiting for the Cumin to crackle#: Waiting for 2 minutes
+
+[green]#INFO# ⏰ Masala: [green]#Waiting for the Cumin to crackle#: Done !
+
+[green]#INFO# 🥣 [fuchsia]#Masala#: Cumin started to crackle
+
+[green]#INFO# 🥣 [fuchsia]#Masala#: Added Onions, Garlic and Ginger to the pan
+
+[green]#INFO# ⏰ Masala: [green]#Stir-frying the Onions to change color#: Waiting for 2 minutes
+
+[green]#INFO# ⏰ Masala: [green]#Stir-frying the Onions to change color#: Done !
+
+[green]#INFO# 🥣 [fuchsia]#Masala#: Onions turning golden brown. Garlic and Ginger sizzling
+
+[green]#INFO# 🥣 [fuchsia]#Masala#: Base ingredients are cooked
+
+[green]#INFO# 🥣 [fuchsia]#Masala#: Adding salt
+
+[green]#INFO# 🥣 [fuchsia]#Masala#: Adding sugar
+
+[green]#INFO# 🥣 [fuchsia]#Masala#: Adding tomatoes
+
+[green]#INFO# 🥣 [fuchsia]#Masala#: Adding curry powder
+
+[green]#INFO# ⏰ Masala: [green]#Cooking tomatoes#: Waiting for 7 minutes
+
+[green]#INFO# ⏰ Masala: [green]#Cooking tomatoes#: Done !
+
+[green]#INFO# ⏰ Masala: [green]#Cooling the cooked mix#: Waiting for 3 minutes
+
+[green]#INFO# ⏰ Masala: [green]#Cooling the cooked mix#: Done !
+
+[green]#INFO# 🥣 [fuchsia]#Masala#: Blending the masala mix
+
+[green]#INFO# ⏰ Masala: [green]#Making the masala Puree#: Waiting for 5 minutes
+
+[green]#INFO# ⏰ Masala: [green]#Making the masala Puree#: Done !
+
+[green]#INFO# ⏰ Paneer Tikka: [green]#Marination time#: Done !
+
+[green]#INFO# 🥘 [yellow]#Done marinating the Paneer Tikka!#
+
+[green]#INFO# 🥘 [yellow]#Done making the Masala#
+
+[green]#INFO# 👨🏼‍🍳 [blue]#Cooking#: Roasting/Grilling Paneer
+
+[green]#INFO# ⏰ Cooking: [green]#Preheating oven to 350°F#: Waiting for 5 minutes
+
+[green]#INFO# 👨🏼‍🍳 [blue]#Cooking#: Chopping Cilantro
+
+[green]#INFO# ⏰ Cooking: [green]#Chopping Cilantro#: Waiting for 3 minutes
+
+[green]#INFO# ⏰ Cooking: [green]#Chopping Cilantro#: Done !
+
+[green]#INFO# 👨🏼‍🍳 [blue]#Cooking#: Chopped Cilantro
+
+[green]#INFO# ⏰ Cooking: [green]#Preheating oven to 350°F#: Done !
+
+[green]#INFO# 👨🏼‍🍳 [blue]#Cooking#: Oven preheated to 350°F
+
+[green]#INFO# ⏰ Cooking: [green]#Roasting marinated paneer#: Waiting for 10 minutes
+
+[green]#INFO# ⏰ Cooking: [green]#Roasting marinated paneer#: Done !
+
+[green]#INFO# 👨🏼‍🍳 [blue]#Cooking#: Done roasting paneer
+
+[green]#INFO# 👨🏼‍🍳 [blue]#Cooking#: Heating pureed Masala
+
+[green]#INFO# ⏰ Cooking: [green]#Heating pureed Masala: Waiting for 5 minutes
+
+[green]#INFO# ⏰ Cooking: [green]#Heating pureed Masala: Done !
+
+[green]#INFO# 👨🏼‍🍳 [blue]#Cooking#: Done heating pureed masala
+
+[green]#INFO# 👨🏼‍🍳 [blue]#Cooking#: Adding cream, a few chopped cilantro leaves, water
+
+[green]#INFO# 👨🏼‍🍳 [blue]#Cooking#: Cooking
+
+[green]#INFO# 👨🏼‍🍳 [blue]#Cooking#: Adding roasted/grilled paneer
+
+[green]#INFO# ⏰ Cooking: [green]#Cooking the mix#: Waiting for 3 minutes
+
+[green]#INFO# ⏰ Cooking: [green]#Cooking the mix#: Done !
+
+[green]#INFO# 👨🏼‍🍳 [blue]#Cooking#: Garnishing
+
+[green]#INFO# 👨🏼‍🍳 [blue]#Cooking#: Adding remaining chopped cilantro
+
+[green]#INFO# 👨🏼‍🍳 [blue]#Cooking#: Lemon Juice as a Garnish? Depends on mood
+
+[yellow]#WARN# 👨🏼‍🍳 [blue]#Cooking#: Lemon Juice ... no!
+
+[green]#INFO# 🥘 [yellow]#Paneer Tikka Masala ready in 1h 54m 9.168s#

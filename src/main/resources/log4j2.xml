@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration status="WARN">
+
+    <Appenders>
+
+        <!-- Top Level Log Pattern -->
+        <Console name="TopLevel" target="SYSTEM_OUT">
+            <PatternLayout pattern="%d{HH:mm:ss.SSS} %20.20threadName{25} %highlight{%-5level} 🥘 %style{%msg}{yellow}%n"/>
+        </Console>
+
+        <!-- Recipe Part Log Pattern -->
+        <Console name="CheckIngredients" target="SYSTEM_OUT">
+            <PatternLayout pattern="%d{HH:mm:ss.SSS} %20.20threadName{25} %highlight{%-5level} ☑️ %style{%X{recipe.part}}{cyan}: %msg%n"/>
+        </Console>
+
+        <Console name="PaneerTikka" target="SYSTEM_OUT">
+            <PatternLayout pattern="%d{HH:mm:ss.SSS} %20.20threadName{25} %highlight{%-5level} 🍲 %style{%X{recipe.part}}{red}: %msg%n"/>
+        </Console>
+
+        <Console name="Masala" target="SYSTEM_OUT">
+            <PatternLayout pattern="%d{HH:mm:ss.SSS} %20.20threadName{25} %highlight{%-5level} 🥣 %style{%X{recipe.part}}{magenta}: %msg%n"/>
+        </Console>
+
+        <Console name="Cooking" target="SYSTEM_OUT">
+            <PatternLayout pattern="%d{HH:mm:ss.SSS} %20.20threadName{25} %highlight{%-5level} 👨🏼‍🍳 %style{%X{recipe.part}}{blue}: %msg%n"/>
+        </Console>
+
+        <!-- Time Simulating Log Pattern -->
+        <Console name="DelayPatterns" target="SYSTEM_OUT">
+            <PatternLayout pattern="%d{HH:mm:ss.SSS} %20.20threadName{25} %highlight{%-5level} ⏰ %X{recipe.part}: %style{%X{delay.reason}}{green}: %msg%n"/>
+        </Console>
+    </Appenders>
+
+    <Loggers>
+
+        <Root level="error">
+            <AppenderRef ref="TopLevel"/>
+        </Root>
+
+        <!-- Top Level Logger -->
+        <Logger name="none.cgutils.recipe.paneer.tikka.PaneerTikkaMasala" level="debug" additivity="false">
+            <AppenderRef ref="TopLevel"/>
+        </Logger>
+        <Logger name="none.cgutils.recipe.paneer.tikka.SolutionPaneerTikkaMasala" level="debug" additivity="false">
+            <AppenderRef ref="TopLevel"/>
+        </Logger>
+
+        <!-- Recipe Part Loggers -->
+        <Logger name="none.cgutils.recipe.paneer.tikka.parts.Part1CheckIngredients" level="debug" additivity="false">
+            <AppenderRef ref="CheckIngredients"/>
+        </Logger>
+        <Logger name="none.cgutils.recipe.paneer.tikka.parts.SolutionPart1CheckIngredients" level="debug" additivity="false">
+            <AppenderRef ref="CheckIngredients"/>
+        </Logger>
+
+        <Logger name="none.cgutils.recipe.paneer.tikka.parts.Part2aMakePaneerTikka" level="debug" additivity="false">
+            <AppenderRef ref="PaneerTikka" />
+        </Logger>
+        <Logger name="none.cgutils.recipe.paneer.tikka.parts.SolutionPart2AMakePaneerTikka" level="debug" additivity="false">
+            <AppenderRef ref="PaneerTikka" />
+        </Logger>
+
+        <Logger name="none.cgutils.recipe.paneer.tikka.parts.Part2bMakeMasala" level="debug" additivity="false">
+            <AppenderRef ref="Masala" />
+        </Logger>
+        <Logger name="none.cgutils.recipe.paneer.tikka.parts.SolutionPart2BMakeMasala" level="debug" additivity="false">
+            <AppenderRef ref="Masala" />
+        </Logger>
+
+        <Logger name="none.cgutils.recipe.paneer.tikka.parts.Part3Cooking" level="debug" additivity="false">
+            <AppenderRef ref="Cooking" />
+        </Logger>
+        <Logger name="none.cgutils.recipe.paneer.tikka.parts.SolutionPart3Cooking" level="debug" additivity="false">
+            <AppenderRef ref="Cooking" />
+        </Logger>
+
+
+        <!-- Time Simulating Logger -->
+        <Logger name="none.cgutils.recipe.paneer.tikka.parts.RecipePart" level="debug" additivity="false">
+            <AppenderRef ref="DelayPatterns"/>
+        </Logger>
+    </Loggers>
+
+</Configuration>
