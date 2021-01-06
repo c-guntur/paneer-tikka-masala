@@ -6,7 +6,6 @@ image::https://github.com/c-guntur/paneer-tikka-masala/workflows/build/badge.svg
 
 image::assets/images/DukePaneerTikkaMasala.png[Duke with Paneer Tikka Masala,537,405]
 
-
 `java.util.concurrent.CompletableFuture` is a versatile utility in Java (since Java 8). It provides a means of task execution, both synchronous and asynchronous.
 
 A CompletableFuture implements `java.util.concurrent.Future` (available since Java 5) and `java.util.concurrent.CompletionStage` (available since Java 8) and adds additional methods for operating on tasks.
