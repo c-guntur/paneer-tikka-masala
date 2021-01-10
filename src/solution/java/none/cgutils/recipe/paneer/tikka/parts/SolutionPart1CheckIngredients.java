@@ -102,19 +102,19 @@ public class SolutionPart1CheckIngredients {
      */
     void checkForPaprikaAndChilliPowder() {
 
-        // FIXED:
+        // TO DO:
         //  Fix the successfulFindChilliPowder()
         CompletableFuture<String> checkForChilliPowder =
                 (CompletableFuture<String>) successfulFindChilliPowder();
 
-        // FIXED:
+        // TO DO:
         //  Check if the checkForChilliPowder is done. Replace the 'false' with a check.
         // HINT:
         //  Use the isDone() method.
         if (checkForChilliPowder.isDone()) {
             try {
                 // a get() waits for the CF to complete, then returns its result.
-                // FIXED:
+                // TO DO:
                 //  Get the value from the checkForChilliPowder. Replace the empty string
                 //  with the result of the CompletableFuture.
                 // HINT:
@@ -126,14 +126,14 @@ public class SolutionPart1CheckIngredients {
             }
         }
 
-        // FIXED:
+        // TO DO:
         //  Fix the unsuccessfulFindPaprikaPowder()
         CompletableFuture<String> checkForPaprikaPowder =
                 (CompletableFuture<String>) unsuccessfulFindPaprikaPowder();
 
         // a whenComplete() returns a new CompletionStage with the same result or exception as
         // this stage, that executes the given action when this stage completes.
-        // FIXED:
+        // TO DO:
         //  Handle the exception from the checkForPaprikaPowder.
         // HINT:
         //  Use the whenComplete method and LOG an warn message.
@@ -152,7 +152,7 @@ public class SolutionPart1CheckIngredients {
 
         // completedFuture() returns a new CompletableFuture that is already completed with the
         // given value.
-        // FIXED:
+        // TO DO:
         //  Create a completedFuture. Replace the null with a completedFuture.
         // HINT:
         //  Use CompletableFuture.completedFuture() static method
@@ -168,7 +168,7 @@ public class SolutionPart1CheckIngredients {
 
         // failedFuture() returns a new CompletableFuture that is already completed
         // exceptionally with the given exception.
-        // FIXED:
+        // TO DO:
         //  Create a failedFuture. Replace the null with a failedFuture.
         // HINT:
         //  Use CompletableFuture.failedFuture() with a PaprikaNotFoundException.
@@ -195,12 +195,15 @@ public class SolutionPart1CheckIngredients {
         // Create an async process to go to the store
         // runAsync() takes a Runnable as an input parameter
         // and returns a CompletableFuture<Void>.
-        // FIXED:
+        // TO DO:
         //  Create a CompletableFuture and run an async set of statements to
         //  delay for 30 mins while a store trip is made. Replace the CompletedFuture() with one
         //  that logs a delay or 30 mins for a "Store trip for Garam Masala".
         // HINT:
         //  Use the CompletableFuture.runAsync() static method.
+        //  Add a ThreadContext for pretty logging:
+        //      ThreadContext.put(RECIPE_PART, RECIPE_PART_VALUE);
+        //  Use the delayMinutes(30, reasonString) from the RecipePart.java
         CompletableFuture<Void> getGaramMasalaFromStore = CompletableFuture
                 .runAsync(() -> {
                     ThreadContext.put(RECIPE_PART, RECIPE_PART_VALUE);
@@ -212,7 +215,7 @@ public class SolutionPart1CheckIngredients {
         // While the CompletableFuture is not done, other activities can be performed
         // isDone() determines if the CompletableFuture completed (success, failure or exception).
         while ((!getGaramMasalaFromStore.isDone())) {
-            // FIXED:
+            // TO DO:
             //  Uncomment the below line
             getPotsAndPansReady();
         }

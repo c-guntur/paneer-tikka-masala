@@ -36,7 +36,7 @@ public class SolutionPart3Cooking {
     }
 
     public CompletableFuture<Void> cook() {
-        // FIXED:
+        // TO DO:
         //  Fix the other TODOs below, then :
         //  Roast or grill the paneer,chop the cilantro then,
         //  heat the pureed masala, then the cream and cilantro.
@@ -77,13 +77,13 @@ public class SolutionPart3Cooking {
             LOGGER.info("Roasting/Grilling Paneer");
         }, executor).join();
 
-        // FIXED:
+        // TO DO:
         //  Create a delayed executor.
         // HINT:
         //  Use a delayedExecutor() static method with 20 second delay.
         Executor delayedExecutor = CompletableFuture.delayedExecutor(20, TimeUnit.SECONDS, this.executor);
 
-        // FIXED:
+        // TO DO:
         //  Use the delayedExecutor to ensure that we cannot grill earlier than roast.
         // HINT:
         //  Use the delayedExecutor created above instead of the executor.
@@ -103,7 +103,7 @@ public class SolutionPart3Cooking {
             return "Done roasting paneer";
         }, executor);
 
-        // FIXED:
+        // TO DO:
         //  Use either of the grilling or roasting (whichever completes first.
         //  Replace the null completedFuture with the right anyOf call, then log the result.
         // HINT:
@@ -159,7 +159,7 @@ public class SolutionPart3Cooking {
 
         Random randomBoolean = new Random();
 
-        // FIXED:
+        // TO DO:
         //  Use the boolean value to either complete or fail with a NoLemonJuiceGarnishException.
         // HINT:
         //  Use the complete() or completeExceptionally() depending on the boolean value.
@@ -174,7 +174,7 @@ public class SolutionPart3Cooking {
             booleanCompletableFuture.completeExceptionally(new NoLemonJuiceGarnishException("Lemon Juice ... no!"));
         }
 
-        // FIXED:
+        // TO DO:
         //  Handle the acceptance or exception based on the CompletableFuture success or failure.
         // HINT:
         //  Use thenApply() and then fluently use an exceptionally().

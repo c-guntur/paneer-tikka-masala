@@ -201,6 +201,9 @@ public class Part1CheckIngredients {
         //  that logs a delay or 30 mins for a "Store trip for Garam Masala".
         // HINT:
         //  Use the CompletableFuture.runAsync() static method.
+        //  Add a ThreadContext for pretty logging:
+        //      ThreadContext.put(RECIPE_PART, RECIPE_PART_VALUE);
+        //  Use the delayMinutes(30, reasonString) from the parent RecipePart.java
         CompletableFuture<Void> getGaramMasalaFromStore = new CompletableFuture<>();
 
 

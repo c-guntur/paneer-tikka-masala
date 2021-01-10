@@ -37,7 +37,7 @@ public class SolutionPart2BMakeMasala {
         ThreadContext.put(RECIPE_PART, RECIPE_PART_VALUE);
         LOGGER.info("Making the Masala");
 
-        // FIXED:
+        // TO DO:
         //  Fix the other TODOs below, then :
         //  Chain the chopping, heating oil, crackling spices,
         //  frying the allia and ginger in an asynchronous set of operations,
@@ -78,7 +78,7 @@ public class SolutionPart2BMakeMasala {
         CompletableFuture<String> choppingStarter = CompletableFuture
                 .supplyAsync(() -> "Chopping the main ingredients for Paneer Tikka");
 
-        // FIXED:
+        // TO DO:
         //  Use your helpers to chop things at the same time! Use a future that
         //  will run irrespective of success or failure.
         // HINT:

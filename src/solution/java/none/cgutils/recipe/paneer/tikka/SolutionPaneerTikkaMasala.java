@@ -38,22 +38,22 @@ public class SolutionPaneerTikkaMasala {
         SolutionPart2BMakeMasala makeMasala = new SolutionPart2BMakeMasala(executor);
         SolutionPart3Cooking cooking = new SolutionPart3Cooking(executor);
 
-        // FIXED:
+        // TO DO:
         //  Uncomment the below line
         checkIngredients.checkIngredients();
 
-        // FIXED:
+        // TO DO:
         //  Prepare the Paneer Tikka and then marinate them using an executor.
         // HINT:
         //  Use a thenComposeAsync() with the executor.
         CompletableFuture<String> paneerTikka = makePaneerTikka.preparePaneerTikka()
                 .thenComposeAsync(s -> makePaneerTikka.marinateMixedTikkas(), executor);
 
-        // FIXED:
+        // TO DO:
         //  Uncomment the below line
         CompletableFuture<String> masala = makeMasala.prepareMasala();
 
-        // FIXED:
+        // TO DO:
         //  Ensure that BOTH paneerTikka and masala parts are completed.
         // HINT:
         //  Use the allOf() to ensure both are completed.
@@ -61,13 +61,13 @@ public class SolutionPaneerTikkaMasala {
         CompletableFuture<Void> makeRecipeParts = CompletableFuture.allOf(paneerTikka, masala);
         makeRecipeParts.join();
 
-        // FIXED:
+        // TO DO:
         //  Uncomment the below three lines
         LOGGER.info(paneerTikka.get());
         LOGGER.info(masala.get());
         cooking.cook().join();
 
-        // FIXED:
+        // TO DO:
         //  Comment the next two lines. These just exist so we don't hang the program in the kata.
 //        paneerTikka.get();
 //        makeRecipeParts.complete(null);
@@ -75,7 +75,7 @@ public class SolutionPaneerTikkaMasala {
         overallTimer.end();
         LOGGER.info("Paneer Tikka Masala ready in {}", overallTimer.getDuration());
 
-        // FIXED:
+        // TO DO:
         //  Comment the next two lines
 //        paneerTikka.get(5L, TimeUnit.SECONDS);
 //        makeRecipeParts.get(5L, TimeUnit.SECONDS);

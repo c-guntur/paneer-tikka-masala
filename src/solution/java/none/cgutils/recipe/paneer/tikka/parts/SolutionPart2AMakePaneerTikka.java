@@ -30,7 +30,7 @@ public class SolutionPart2AMakePaneerTikka {
         ThreadContext.put(RECIPE_PART, RECIPE_PART_VALUE);
         LOGGER.info("Making the Paneer Tikka");
 
-        // FIXED:
+        // TO DO:
         //  Fix the chopStuff() method, then :
         //  Use a thenCompose to trigger a mix after everything is chopped.
         // HINT:
@@ -41,7 +41,7 @@ public class SolutionPart2AMakePaneerTikka {
                         (String choppingStatus) ->
                                 CompletableFuture.supplyAsync(() -> mixStuff(choppingStatus)));
 
-        // FIXED:
+        // TO DO:
         //  Get the result of the CompletableFuture.
         // HINT: Use a join() to skip setting a try-catch block
         choppingAndMixingCompletableFuture.join();
@@ -56,7 +56,7 @@ public class SolutionPart2AMakePaneerTikka {
         CompletableFuture<String> choppingStarter = CompletableFuture
                 .supplyAsync(() -> "Chopping the main ingredients for Paneer Tikka");
 
-        // FIXED:
+        // TO DO:
         //  Compose all chopping in a chained sequence and then log the success.
         // HINT:
         //  Use three thenCompose(), pass the previous CF's result.
