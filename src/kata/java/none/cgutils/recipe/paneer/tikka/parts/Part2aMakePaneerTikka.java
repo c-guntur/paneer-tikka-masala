@@ -35,7 +35,7 @@ public class Part2aMakePaneerTikka extends RecipePart {
         //  Use a thenCompose to trigger a mix after everything is chopped.
         // HINT:
         //  Use a thenCompose() on the chopStuff() CompletableFuture
-        //  and call a supplyAsync with an executor.
+        //  and call a supplyAsync to mixStuff(chopStuff() output).
         CompletableFuture<String> choppingAndMixingCompletableFuture =
                 CompletableFuture.supplyAsync(() -> "Fix this");
 
@@ -62,11 +62,12 @@ public class Part2aMakePaneerTikka extends RecipePart {
         //  Use three thenCompose(), pass the previous CF's result.
         //  Once all chopping is done, call a thenApply() to log a successful completion
         //  of the chopping.
-        return choppingStarter;
-
-
-
-
+        //  The logging message can contain: ""Completed chopping paneer, ginger and garlic"
+        return choppingStarter
+                .thenCompose(this::chopPaneer)
+                .thenCompose(s -> chopGinger())
+                .thenCompose(s -> chopGarlic())
+                .thenApply(s -> "Completed chopping paneer, ginger and garlic");
     }
 
     CompletableFuture<String> chopPaneer(String priorStatus) {
