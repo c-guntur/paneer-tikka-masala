@@ -37,6 +37,8 @@ public class SolutionPart2BMakeMasala {
         ThreadContext.put(RECIPE_PART, RECIPE_PART_VALUE);
         LOGGER.info("Making the Masala");
 
+        String successMessage = "Base ingredients are cooked";
+
         // TO DO:
         //  Fix the other TODOs below, then :
         //  Chain the chopping, heating oil, crackling spices,
@@ -45,7 +47,11 @@ public class SolutionPart2BMakeMasala {
         //  that the base ingredients are cooked.
         // HINT:
         //  Use thenComposeAsync(), thenApplyAsync(), thenAcceptAsync()
-        //  and thenRunAsync() with executors
+        //  and thenRunAsync() with executors.
+        //  Use the thenComposeAsync to heat and to crackle.
+        //  Use the thenApplyAsync to fry.
+        //  Use a thenAcceptAsync to log the output of the above chained operations.
+        //  Use a thenRunAsync to log the successMessage.
         CompletableFuture<Void> cookingTheBaseIngredients = chopOnionsGarlicAndGinger()
                 .thenComposeAsync(this::heatButterAndOil, executor)
                 .thenComposeAsync(this::crackleCuminAndCinnamon, executor)
@@ -53,7 +59,7 @@ public class SolutionPart2BMakeMasala {
                 .thenAcceptAsync(LOGGER::info, executor)
                 .thenRunAsync(() -> {
                     ThreadContext.put(RECIPE_PART, RECIPE_PART_VALUE);
-                    LOGGER.info("Base ingredients are cooked");
+                    LOGGER.info(successMessage);
                 }, executor);
 
         // How to use a Void
@@ -79,35 +85,36 @@ public class SolutionPart2BMakeMasala {
                 .supplyAsync(() -> "Chopping the main ingredients for Paneer Tikka");
 
         String choppingComplete = "Completed chopping paneer, ginger, garlic and tomatoes";
+        String interimEmptyMessage = "";
 
         // TO DO:
         //  Use your helpers to chop things at the same time! Use a future that
         //  will run irrespective of success or failure.
         // HINT:
         //  Use a thenCombine() with an executor to combine, return an empty
-        //  string for the BiFunction.
+        //  string for the BiFunction. Return an interimEmptyMessage ("") for each stage.
         //  Use a handleAsync() with an executor to run with a possible exception
         //  or successful result (choppingComplete).
         CompletableFuture<String> overallChopping = choppingStarter
                 .thenCombine(chopOnions(), (choppingStarterMessage, choppingOnionsMessage) -> {
                     LOGGER.info(choppingStarterMessage);
                     LOGGER.info(choppingOnionsMessage);
-                    return "";
+                    return interimEmptyMessage;
                 })
-                .thenCombine(chopGarlic(), (interimEmptyMessage, chopGarlicMessage) -> {
+                .thenCombine(chopGarlic(), (previousStatus, chopGarlicMessage) -> {
                     LOGGER.info(chopGarlicMessage);
-                    return "";
+                    return interimEmptyMessage;
                 })
-                .thenCombine(chopGinger(), (interimEmptyMessage, chopGingerMessage) -> {
+                .thenCombine(chopGinger(), (previousStatus, chopGingerMessage) -> {
                     LOGGER.info(chopGingerMessage);
-                    return "";
+                    return interimEmptyMessage;
                 })
-                .thenCombine(chopTomatoes(), (interimEmptyMessage, chopTomatoesMessage) -> {
+                .thenCombine(chopTomatoes(), (previousStatus, chopTomatoesMessage) -> {
                     LOGGER.info(chopTomatoesMessage);
-                    return "";
+                    return interimEmptyMessage;
                 })
                 .handleAsync(
-                        (interimEmptyMessage, throwable) ->
+                        (previousStatus, throwable) ->
                                 choppingComplete,
                         executor);
 

@@ -209,7 +209,7 @@ public class Part1CheckIngredients {
         //  Use the CompletableFuture.runAsync() static method.
         //  Add a ThreadContext for pretty logging:
         //      ThreadContext.put(RECIPE_PART, RECIPE_PART_VALUE);
-        //  Use the delayMinutes(30, delayReason) from the RecipePart.java
+        //  Use the delayMinutes(30L, delayReason) from the RecipePart.java
         CompletableFuture<Void> getGaramMasalaFromStore = new CompletableFuture<>();
 
 

@@ -171,9 +171,9 @@ public class Part3Cooking {
             // not yet complete.
 
         } else {
-            // completeExceptionally() sets a value returned by the get(), if the CompletableFuture is
-            // not yet complete.
-            // Throw a NoLemonJuiceGarnishException with message: "Lemon Juice ... no!"
+            // completeExceptionally() sets a value returned by the get(), if the CompletableFuture
+            // is not yet complete.
+            // Throw a NoLemonJuiceGarnishException with the negativeMessage.
 
 
         }

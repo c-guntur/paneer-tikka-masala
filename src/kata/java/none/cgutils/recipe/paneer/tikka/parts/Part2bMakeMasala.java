@@ -37,6 +37,8 @@ public class Part2bMakeMasala {
         ThreadContext.put(RECIPE_PART, RECIPE_PART_VALUE);
         LOGGER.info("Making the Masala");
 
+        String successMessage = "Base ingredients are cooked";
+
         // TODO:
         //  Fix the other TODOs below, then :
         //  Chain the chopping, heating oil, crackling spices,
@@ -45,7 +47,11 @@ public class Part2bMakeMasala {
         //  that the base ingredients are cooked.
         // HINT:
         //  Use thenComposeAsync(), thenApplyAsync(), thenAcceptAsync()
-        //  and thenRunAsync() with executors
+        //  and thenRunAsync() with executors.
+        //  Use the thenComposeAsync to heat and to crackle.
+        //  Use the thenApplyAsync to fry.
+        //  Use a thenAcceptAsync to log the output of the above chained operations.
+        //  Use a thenRunAsync to log the successMessage.
         CompletableFuture<Void> cookingTheBaseIngredients = new CompletableFuture<>();
 
 
@@ -79,13 +85,14 @@ public class Part2bMakeMasala {
                 .supplyAsync(() -> "Chopping the main ingredients for Paneer Tikka");
 
         String choppingComplete = "Completed chopping paneer, ginger, garlic and tomatoes";
+        String interimEmptyMessage = "";
 
         // TODO:
         //  Use your helpers to chop things at the same time! Use a future that
         //  will run irrespective of success or failure.
         // HINT:
         //  Use a thenCombine() with an executor to combine, return an empty
-        //  string for the BiFunction.
+        //  string for the BiFunction. Return an interimEmptyMessage ("") for each stage.
         //  Use a handleAsync() with an executor to run with a possible exception
         //  or successful result (choppingComplete).
         CompletableFuture<String> overallChopping = choppingStarter;

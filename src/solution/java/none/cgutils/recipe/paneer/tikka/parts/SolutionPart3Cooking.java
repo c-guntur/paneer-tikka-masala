@@ -173,7 +173,7 @@ public class SolutionPart3Cooking {
         } else {
             // completeExceptionally() sets a value returned by the get(), if the CompletableFuture
             // is not yet complete.
-            // Throw a NoLemonJuiceGarnishException with message: negativeMessage
+            // Throw a NoLemonJuiceGarnishException with the negativeMessage.
             booleanCompletableFuture.completeExceptionally(
                     new NoLemonJuiceGarnishException(negativeMessage));
         }
