@@ -56,18 +56,20 @@ public class SolutionPart2AMakePaneerTikka {
         CompletableFuture<String> choppingStarter = CompletableFuture
                 .supplyAsync(() -> "Chopping the main ingredients for Paneer Tikka");
 
+        String choppingComplete = "Completed chopping paneer, ginger and garlic";
+
         // TO DO:
         //  Compose all chopping in a chained sequence and then log the success.
         // HINT:
         //  Use three thenCompose(), pass the previous CF's result.
-        //  Once all chopping is done, call a thenApply() to log a successful completion
+        //  Once all chopping is done, call a thenApply() to return a successful completion
         //  of the chopping.
-        //  The logging message can contain: ""Completed chopping paneer, ginger and garlic"
+        //  The return of the thenApply() is the choppingComplete string.
         return choppingStarter
                 .thenCompose(this::chopPaneer)
                 .thenCompose(s -> chopGinger())
                 .thenCompose(s -> chopGarlic())
-                .thenApply(s -> "Completed chopping paneer, ginger and garlic");
+                .thenApply(s -> choppingComplete);
     }
 
     CompletableFuture<String> chopPaneer(String priorStatus) {

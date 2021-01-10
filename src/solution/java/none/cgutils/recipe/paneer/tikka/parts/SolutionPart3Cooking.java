@@ -109,7 +109,8 @@ public class SolutionPart3Cooking {
         // HINT:
         //  Use the anyOf() static method to pick the first CF that completes.
         //  Use a thenAcceptAsync() to log the one that was used.
-        return CompletableFuture.anyOf(grillPaneer, ovenRoastPaneer).thenAcceptAsync(LOGGER::info, executor);
+        return CompletableFuture.anyOf(grillPaneer, ovenRoastPaneer)
+                .thenAcceptAsync(LOGGER::info, executor);
     }
 
     private CompletableFuture<String> heatPureedMasala(Void unused) {
@@ -154,6 +155,8 @@ public class SolutionPart3Cooking {
         ThreadContext.put(RECIPE_PART, RECIPE_PART_VALUE);
 
         LOGGER.info("Lemon Juice as a Garnish? Depends on mood");
+        String positiveMessage = "Lemon Juice ... yes!";
+        String negativeMessage = "Lemon Juice ... no!";
 
         CompletableFuture<Boolean> booleanCompletableFuture = new CompletableFuture<>();
 
@@ -168,18 +171,21 @@ public class SolutionPart3Cooking {
             // not yet complete.
             booleanCompletableFuture.complete(true);
         } else {
-            // completeExceptionally() sets a value returned by the get(), if the CompletableFuture is
-            // not yet complete.
-            // Throw a NoLemonJuiceGarnishException with message: "Lemon Juice ... no!"
-            booleanCompletableFuture.completeExceptionally(new NoLemonJuiceGarnishException("Lemon Juice ... no!"));
+            // completeExceptionally() sets a value returned by the get(), if the CompletableFuture
+            // is not yet complete.
+            // Throw a NoLemonJuiceGarnishException with message: negativeMessage
+            booleanCompletableFuture.completeExceptionally(
+                    new NoLemonJuiceGarnishException(negativeMessage));
         }
 
         // TO DO:
         //  Handle the acceptance or exception based on the CompletableFuture success or failure.
         // HINT:
         //  Use thenApply() and then fluently use an exceptionally().
+        //  The thenApply() should log the positiveMessage.
+        //  The exceptionally() should log the exception.getCause().getMessage().
         booleanCompletableFuture.thenApply(aBoolean -> {
-            LOGGER.info("Lemon Juice ... yes!");
+            LOGGER.info(positiveMessage);
             return null;
         }).exceptionally(ex -> {
             LOGGER.warn(ex.getCause().getMessage());

@@ -78,6 +78,8 @@ public class Part2bMakeMasala {
         CompletableFuture<String> choppingStarter = CompletableFuture
                 .supplyAsync(() -> "Chopping the main ingredients for Paneer Tikka");
 
+        String choppingComplete = "Completed chopping paneer, ginger, garlic and tomatoes";
+
         // TODO:
         //  Use your helpers to chop things at the same time! Use a future that
         //  will run irrespective of success or failure.
@@ -85,7 +87,7 @@ public class Part2bMakeMasala {
         //  Use a thenCombine() with an executor to combine, return an empty
         //  string for the BiFunction.
         //  Use a handleAsync() with an executor to run with a possible exception
-        //  or successful result.
+        //  or successful result (choppingComplete).
         CompletableFuture<String> overallChopping = choppingStarter;
 
 

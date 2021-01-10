@@ -110,6 +110,7 @@ public class Part3Cooking {
         //  Use the anyOf() static method to pick the first CF that completes.
         //  Use a thenAcceptAsync() to log the one that was used.
         return CompletableFuture.completedFuture(null);
+
     }
 
     private CompletableFuture<String> heatPureedMasala(Void unused) {
@@ -154,6 +155,8 @@ public class Part3Cooking {
         ThreadContext.put(RECIPE_PART, RECIPE_PART_VALUE);
 
         LOGGER.info("Lemon Juice as a Garnish? Depends on mood");
+        String positiveMessage = "Lemon Juice ... yes!";
+        String negativeMessage = "Lemon Juice ... no!";
 
         CompletableFuture<Boolean> booleanCompletableFuture = new CompletableFuture<>();
 
@@ -172,12 +175,15 @@ public class Part3Cooking {
             // not yet complete.
             // Throw a NoLemonJuiceGarnishException with message: "Lemon Juice ... no!"
 
+
         }
 
         // TODO:
         //  Handle the acceptance or exception based on the CompletableFuture success or failure.
         // HINT:
         //  Use thenApply() and then fluently use an exceptionally().
+        //  The thenApply() should log the positiveMessage.
+        //  The exceptionally() should log the exception.getCause().getMessage().
 
 
 

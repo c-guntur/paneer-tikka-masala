@@ -150,13 +150,15 @@ public class Part1CheckIngredients {
      */
     Future<String> successfulFindChilliPowder() {
 
+        String successMessage = "Red Chilli Powder";
+
         // completedFuture() returns a new CompletableFuture that is already completed with the
         // given value.
         // TODO:
         //  Create a completedFuture. Replace the null with a completedFuture.
         // HINT:
         //  Use CompletableFuture.completedFuture() static method
-        //  with a string of "Red Chilli Powder"
+        //  with a successMessage.
         return null;
     }
 
@@ -166,13 +168,15 @@ public class Part1CheckIngredients {
      */
     Future<String> unsuccessfulFindPaprikaPowder() {
 
+        String exceptionMessage = "Paprika Powder not found";
+
         // failedFuture() returns a new CompletableFuture that is already completed
         // exceptionally with the given exception.
         // TODO:
         //  Create a failedFuture. Replace the null with a failedFuture.
         // HINT:
         //  Use CompletableFuture.failedFuture() with a PaprikaNotFoundException.
-        //  Use the Exception's string constructor with "Paprika Powder not found".
+        //  Use the Exception's string constructor with exceptionMessage.
         return null;
 
     }
@@ -192,6 +196,8 @@ public class Part1CheckIngredients {
 
         Timer timer = new Timer("Garam Masala Shopping");
 
+        String delayReason = "Store trip for Garam Masala";
+
         // Create an async process to go to the store
         // runAsync() takes a Runnable as an input parameter
         // and returns a CompletableFuture<Void>.
@@ -203,7 +209,7 @@ public class Part1CheckIngredients {
         //  Use the CompletableFuture.runAsync() static method.
         //  Add a ThreadContext for pretty logging:
         //      ThreadContext.put(RECIPE_PART, RECIPE_PART_VALUE);
-        //  Use the delayMinutes(30, reasonString) from the parent RecipePart.java
+        //  Use the delayMinutes(30, delayReason) from the RecipePart.java
         CompletableFuture<Void> getGaramMasalaFromStore = new CompletableFuture<>();
 
 
