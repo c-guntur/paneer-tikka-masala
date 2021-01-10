@@ -56,14 +56,14 @@
         <Logger name="none.cgutils.recipe.paneer.tikka.parts.Part2aMakePaneerTikka" level="debug" additivity="false">
             <AppenderRef ref="PaneerTikka" />
         </Logger>
-        <Logger name="none.cgutils.recipe.paneer.tikka.parts.SolutionPart2AMakePaneerTikka" level="debug" additivity="false">
+        <Logger name="none.cgutils.recipe.paneer.tikka.parts.SolutionPart2aMakePaneerTikka" level="debug" additivity="false">
             <AppenderRef ref="PaneerTikka" />
         </Logger>
 
         <Logger name="none.cgutils.recipe.paneer.tikka.parts.Part2bMakeMasala" level="debug" additivity="false">
             <AppenderRef ref="Masala" />
         </Logger>
-        <Logger name="none.cgutils.recipe.paneer.tikka.parts.SolutionPart2BMakeMasala" level="debug" additivity="false">
+        <Logger name="none.cgutils.recipe.paneer.tikka.parts.SolutionPart2bMakeMasala" level="debug" additivity="false">
             <AppenderRef ref="Masala" />
         </Logger>
 

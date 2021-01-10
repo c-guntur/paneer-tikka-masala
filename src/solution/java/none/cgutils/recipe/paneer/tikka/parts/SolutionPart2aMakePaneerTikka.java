@@ -19,9 +19,9 @@ import static none.cgutils.recipe.paneer.tikka.parts.RecipePart.delayMinutes;
     5. Mix until everything is well coated with the spices and yogurt.
     3. Cover and keep this marinated paneer in the refrigerator for 30-40 minutes.
 */
-public class SolutionPart2AMakePaneerTikka {
+public class SolutionPart2aMakePaneerTikka {
 
-    private static final Logger LOGGER = LogManager.getLogger(SolutionPart2AMakePaneerTikka.class);
+    private static final Logger LOGGER = LogManager.getLogger(SolutionPart2aMakePaneerTikka.class);
 
     private static final String RECIPE_PART_VALUE = "Paneer Tikka";
 

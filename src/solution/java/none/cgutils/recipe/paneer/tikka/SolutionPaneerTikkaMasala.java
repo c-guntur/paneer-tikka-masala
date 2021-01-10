@@ -1,8 +1,8 @@
 package none.cgutils.recipe.paneer.tikka;
 
 import none.cgutils.recipe.paneer.tikka.parts.SolutionPart1CheckIngredients;
-import none.cgutils.recipe.paneer.tikka.parts.SolutionPart2AMakePaneerTikka;
-import none.cgutils.recipe.paneer.tikka.parts.SolutionPart2BMakeMasala;
+import none.cgutils.recipe.paneer.tikka.parts.SolutionPart2aMakePaneerTikka;
+import none.cgutils.recipe.paneer.tikka.parts.SolutionPart2bMakeMasala;
 import none.cgutils.recipe.paneer.tikka.parts.SolutionPart3Cooking;
 import none.cgutils.recipe.paneer.tikka.utils.MyThreadFactory;
 import none.cgutils.recipe.paneer.tikka.utils.Timer;
@@ -34,8 +34,8 @@ public class SolutionPaneerTikkaMasala {
                 "\n--------------------------------------");
 
         SolutionPart1CheckIngredients checkIngredients = new SolutionPart1CheckIngredients();
-        SolutionPart2AMakePaneerTikka makePaneerTikka = new SolutionPart2AMakePaneerTikka();
-        SolutionPart2BMakeMasala makeMasala = new SolutionPart2BMakeMasala(executor);
+        SolutionPart2aMakePaneerTikka makePaneerTikka = new SolutionPart2aMakePaneerTikka();
+        SolutionPart2bMakeMasala makeMasala = new SolutionPart2bMakeMasala(executor);
         SolutionPart3Cooking cooking = new SolutionPart3Cooking(executor);
 
         // TO DO:
