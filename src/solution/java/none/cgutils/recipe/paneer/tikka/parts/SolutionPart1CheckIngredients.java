@@ -178,7 +178,7 @@ public class SolutionPart1CheckIngredients {
         //  Use CompletableFuture.failedFuture() with a PaprikaNotFoundException.
         //  Use the Exception's string constructor with exceptionMessage.
         return CompletableFuture.failedFuture(
-                new PaprikaNotFoundException("Paprika Powder not found"));
+                new PaprikaNotFoundException(exceptionMessage));
     }
 
     /**
@@ -215,7 +215,7 @@ public class SolutionPart1CheckIngredients {
                     ThreadContext.put(RECIPE_PART, RECIPE_PART_VALUE);
                     delayMinutes(
                             30L,
-                            "Store trip for Garam Masala");
+                            delayReason);
                 });
 
         // While the CompletableFuture is not done, other activities can be performed
