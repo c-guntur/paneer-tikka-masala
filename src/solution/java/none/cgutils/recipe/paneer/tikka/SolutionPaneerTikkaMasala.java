@@ -82,7 +82,7 @@ public class SolutionPaneerTikkaMasala {
 
         executor.awaitTermination(200, TimeUnit.MILLISECONDS);
 
-        System.exit(1);
+        System.exit(0);
     }
 }
 

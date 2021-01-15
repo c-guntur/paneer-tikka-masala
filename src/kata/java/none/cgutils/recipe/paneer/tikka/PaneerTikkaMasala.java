@@ -81,7 +81,7 @@ public class PaneerTikkaMasala {
 
         executor.awaitTermination(200, TimeUnit.MILLISECONDS);
 
-        System.exit(1);
+        System.exit(0);
     }
 }
 

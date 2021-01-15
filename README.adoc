@@ -35,6 +35,12 @@ image:assets/images/recipe.png[Recipe, 400]
 
 ==== Here are simple steps to use this kata
 
+. Checkout the code from a terminal/command prompt.
+. Setup the project in your IDE.
+** *IntelliJ*: Launch your IDE and point to the pom.xml to be opened as a project.
+** *Eclipse*: Import Existing Maven Projects.
+** *Netbeans*: Open Project, then run `mvn verify`.
+** *Any other IDE*: Ensure that the `src/main/java`, `src/kata/java` and `src/solution/java` are on the source path.
 . Run the main class link:src/kata/java/none/cgutils/recipe/paneer/tikka/PaneerTikkaMasala.java[PaneerTikkaMasala].
 . None of the cooking recipe parts will print out on your console.
 . Fix the broken/empty sections of code using the TODO and HINT comments.
