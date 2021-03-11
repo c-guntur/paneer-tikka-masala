@@ -63,13 +63,14 @@ public class Part3Cooking {
         // TODO:
         //  Create a delayed executor from the provided one.
         // HINT:
-        //  Use a delayedExecutor() static method with 20 second delay and current executor.
+        //  • Use a static CompletableFuture.delayedExecutor() method
+        //    with 20 second delay and current executor.
         Executor delayedExecutor = executor;
 
         // TODO:
         //  Use the delayedExecutor to ensure that we cannot grill earlier than roast.
         // HINT:
-        //  Use the delayedExecutor created above instead of the executor.
+        //  Use the 'delayedExecutor' created above instead of the 'executor'.
         CompletableFuture<String> grillPaneer = CompletableFuture.supplyAsync(() -> {
             ThreadContext.put(RECIPE_PART, RECIPE_PART_VALUE);
             delayMinutes(25L, "Search for skewers");
@@ -90,8 +91,9 @@ public class Part3Cooking {
         //  Use either of the grilling or roasting (whichever completes first.
         //  Replace the null completedFuture with the right anyOf call, then log the result.
         // HINT:
-        //  Use the anyOf() static method to pick the first CF that completes.
-        //  Use a thenAcceptAsync() to log the one that was used.
+        //  • Use a static CompletableFuture.anyOf() method to pick the first CompletableFuture
+        //    that completes, and supply both the 'grillPaneer' and 'ovenRoastPaneer'.
+        //  • Chain a thenAcceptAsync() to log the one that completes first..
         return CompletableFuture.completedFuture(null);
 
     }
@@ -148,15 +150,17 @@ public class Part3Cooking {
         // TODO:
         //  Use the boolean value to either complete or fail with a NoLemonJuiceGarnishException.
         // HINT:
-        //  Use the complete() or completeExceptionally() depending on the boolean value.
+        //  • Use the instance methods complete() or completeExceptionally() on
+        //    booleanCompletableFuture depending on the boolean value.
         if (randomBoolean.nextBoolean()) {
-            // complete() sets a value returned by the get(), if the CompletableFuture is
-            // not yet complete.
+            // complete() on booleanCompletableFuture can set a value (that can later be retrieved
+            // by a get() or join() on the same. This value will only need to be set if the
+            // booleanCompletableFuture has not yet been completed.
 
         } else {
-            // completeExceptionally() sets a value returned by the get(), if the CompletableFuture
-            // is not yet complete.
-            // Throw a NoLemonJuiceGarnishException with the negativeMessage.
+            // completeExceptionally() on booleanCompletableFuture can set an Exception marking the
+            // non-successful completion of the CompletableFuture. In this case, a new
+            // NoLemonJuiceGarnishException with the negativeMessage is thrown.
 
 
         }
@@ -164,9 +168,9 @@ public class Part3Cooking {
         // TODO:
         //  Handle the acceptance or exception based on the CompletableFuture success or failure.
         // HINT:
-        //  Use thenApply() and then fluently use an exceptionally().
-        //  The thenApply() should log the positiveMessage.
-        //  The exceptionally() should log the exception.getCause().getMessage().
+        //  • Use the instance method thenApply() on the booleanCompletableFuture to log the
+        //    'positiveMessage' declared above at an info-level.
+        //  • Chain an instance method exceptionally() to log the message of the exception.
         booleanCompletableFuture.thenApply(aBoolean -> {
             LOGGER.info(positiveMessage);
             return null;
@@ -182,10 +186,13 @@ public class Part3Cooking {
         //  heat the pureed masala, then the cream and cilantro.
         //  Then, Cook and then garnish.
         // HINT:
-        //  Use an allOf to complete the roasting/grilling and the chopping of cilantro.
-        //  Use thenComposeAsync() with an executor to call a heat/puree and once more
-        //      to cook with cream and cilantro.
-        //  Use a thenRunAsync() with an executor to garnish.
+        //  • Use an static CompletableFuture.allOf() method to complete all of:
+        //    • roasting/grilling => roastOrGrillPaneer()
+        //    • chopping of cilantro => chopCilantro()
+        //  • Chain an instance method thenComposeAsync(), with an executor, to:
+        //    • heat/puree => heatPureedMasala()
+        //    • cook with cream and cilantro => addCreamAndCilantroAndCook()
+        //  • Chain an instance method thenRunAsync(), with an executor to garnish().
         return new CompletableFuture<>();
 
 

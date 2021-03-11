@@ -65,8 +65,8 @@ public class Part1CheckIngredients {
         // TODO:
         //  Create a completedFuture. Replace the null with a completedFuture.
         // HINT:
-        //  Use the static CompletableFuture.completedFuture() method with
-        //  the successMessage.
+        //  • Use the static CompletableFuture.completedFuture() method with
+        //    the successMessage.
         return null;
     }
 
@@ -83,8 +83,8 @@ public class Part1CheckIngredients {
         // TODO:
         //  Create a failedFuture. Replace the null with a failedFuture.
         // HINT:
-        //  Use the static CompletableFuture.failedFuture() method with
-        //  a new PaprikaNotFoundException(exceptionMessage).
+        //  • Use the static CompletableFuture.failedFuture() method with
+        //    a new PaprikaNotFoundException(exceptionMessage).
         return null;
 
     }
@@ -107,7 +107,7 @@ public class Part1CheckIngredients {
         // TODO:
         //  Check if the checkForChilliPowder is done. Replace the 'false' with a check.
         // HINT:
-        //  Use the instance method isDone() on checkForChilliPowder.
+        //  • Use the instance method isDone() on checkForChilliPowder.
         if (false) {
             try {
                 // a get() waits for the CF to complete, then returns its result.
@@ -116,8 +116,8 @@ public class Part1CheckIngredients {
                 //  with the result of the CompletableFuture.
                 //  Also, replace the Throwable with the appropriate exceptions.
                 // HINT:
-                //  Use the instance method get() on checkForChilliPowder.
-                //  Update the exceptions that are caught.
+                //  • Use the instance method get() on checkForChilliPowder.
+                //  • Update the exceptions that are caught.
                 LOGGER.info("{} - ½ teaspoon", "");
             } catch (Throwable e) {
                 e.printStackTrace();
@@ -133,8 +133,8 @@ public class Part1CheckIngredients {
         //  Handle the exception from the checkForPaprikaPowder.
         //  Add a warn-level log with the exception message
         // HINT:
-        //  Use the instance method whenComplete() on checkForPaprikaPowder to log at warn-level
-        //  for the exception message.
+        //  • Use the instance method whenComplete() on checkForPaprikaPowder to log at warn-level
+        //    for the exception message.
 
 
     }
@@ -178,10 +178,10 @@ public class Part1CheckIngredients {
         //  Replace the CompletedFuture() with one that logs a delay or 30 mins for a "Store trip
         //  for Garam Masala".
         // HINT:
-        //  Use the static CompletableFuture.runAsync() method.
-        //  Add a ThreadContext for pretty logging:
-        //      ThreadContext.put(RECIPE_PART, RECIPE_PART_VALUE);
-        //  Use the delayMinutes(30L, delayReason) from the RecipePart.java
+        //  • Use the static CompletableFuture.runAsync() method.
+        //  • Add a ThreadContext for pretty logging:
+        //     • ThreadContext.put(RECIPE_PART, RECIPE_PART_VALUE);
+        //  • Use the delayMinutes(30L, delayReason) from the RecipePart.java
         CompletableFuture<Void> getGaramMasalaFromStore = new CompletableFuture<>();
 
 

@@ -45,7 +45,8 @@ public class SolutionPaneerTikkaMasala {
         // TO DO:
         //  Prepare the Paneer Tikka and then marinate them using an executor.
         // HINT:
-        //  Use a thenComposeAsync() with the executor.
+        //  • Use an instance method thenComposeAsync() on makePaneerTikka.preparePaneerTikka(),
+        //    to call the marinateMixedTkkas(), with the executor.
         CompletableFuture<String> paneerTikka = makePaneerTikka.preparePaneerTikka()
                 .thenComposeAsync(s -> makePaneerTikka.marinateMixedTikkas(), executor);
 
@@ -56,19 +57,25 @@ public class SolutionPaneerTikkaMasala {
         // TO DO:
         //  Ensure that BOTH paneerTikka and masala parts are completed.
         // HINT:
-        //  Use the allOf() to ensure both are completed.
-        //  Then join the new CompletableFuture.
+        //  • Use the static CompletableFuture.allOf() to ensure completion of:
+        //    • paneerTikka
+        //    • masala
+        //  • Use the instance method join() on the 'makeRecipeParts'.
         CompletableFuture<Void> makeRecipeParts = CompletableFuture.allOf(paneerTikka, masala);
         makeRecipeParts.join();
 
         // TO DO:
-        //  Uncomment the below three lines
+        //  Uncomment the below three lines. The logs help create the recipe part outputs.
+        //  The Cooking part completes the cooking of the paneerTikka and masala parts together,
+        //  hence ensure the completion of cooking should be done by using an instance method
+        //  join() on the cooking.cook().
         LOGGER.info(paneerTikka.get());
         LOGGER.info(masala.get());
         cooking.cook().join();
 
         // TO DO:
-        //  Comment the next two lines. These just exist so we don't hang the program in the kata.
+        //  Comment/delete the next two lines. These just exist so we don't hang the program
+        //  before we make the necessary changes.
 //        paneerTikka.get();
 //        makeRecipeParts.complete(null);
 
@@ -76,7 +83,8 @@ public class SolutionPaneerTikkaMasala {
         LOGGER.info("Paneer Tikka Masala ready in {}", overallTimer.getDuration());
 
         // TO DO:
-        //  Comment the next two lines
+        //  Comment/delete the next two lines. These just exit so we don't hang the program
+        //  before we mae the necessary changes.
 //        paneerTikka.get(5L, TimeUnit.SECONDS);
 //        makeRecipeParts.get(5L, TimeUnit.SECONDS);
 

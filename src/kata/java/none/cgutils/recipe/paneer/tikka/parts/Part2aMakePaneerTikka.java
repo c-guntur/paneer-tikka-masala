@@ -78,11 +78,11 @@ public class Part2aMakePaneerTikka extends RecipePart {
         //  Compose all chopping in a chained sequence and then log the success.
         //  Use either lambdas or method references, since each method takes a priorStatus String.
         // HINT:
-        //  Chain three instance method thenCompose() on choppingStarter, pass the previous
-        //  CompletableFuture's result.
-        //  Once all chopping is done, call an instance method thenApply() on the chain to return a
-        //  successful completion of the chopping.
-        //  The return of the thenApply() is the choppingComplete string.
+        //  • Chain three instance method thenCompose() on choppingStarter, pass the previous
+        //    CompletableFuture's result.
+        //  • Once all chopping is done, call an instance method thenApply() on the chain to return a
+        //    successful completion of the chopping.
+        //  • The return of the thenApply() is the choppingComplete string.
         return choppingStarter;
 
 
@@ -115,8 +115,8 @@ public class Part2aMakePaneerTikka extends RecipePart {
         // TODO:
         //  Use a thenCompose to trigger a mix after everything is chopped.
         // HINT:
-        //  Use an instance method thenCompose() on the chopStuff() result CompletableFuture
-        //  and call a supplyAsync to mixStuff() passing in the output of the chopStuff().
+        //  • Use an instance method thenCompose() on the chopStuff() result CompletableFuture
+        //    and call a supplyAsync to mixStuff() passing in the output of the chopStuff().
         CompletableFuture<String> choppingAndMixingCompletableFuture =
                 CompletableFuture.supplyAsync(() -> "Fix this");
 
@@ -125,7 +125,8 @@ public class Part2aMakePaneerTikka extends RecipePart {
         // TODO:
         //  Get the result of the CompletableFuture, using a join(), to skip setting a
         //  try-catch block.
-        // HINT: Use an instance method join() on choppingAndMixingCompletableFuture
+        // HINT:
+        //  • Use an instance method join() on choppingAndMixingCompletableFuture
 
 
         return choppingAndMixingCompletableFuture;
