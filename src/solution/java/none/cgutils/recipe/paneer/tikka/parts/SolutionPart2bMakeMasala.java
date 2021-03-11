@@ -92,7 +92,6 @@ public class SolutionPart2bMakeMasala {
         }, executor);
     }
 
-
     CompletableFuture<String> chopOnionsGarlicAndGinger() {
 
         ThreadContext.put(RECIPE_PART, RECIPE_PART_VALUE);
@@ -107,10 +106,11 @@ public class SolutionPart2bMakeMasala {
         //  Use your helpers to chop things at the same time! Use a future that
         //  will run irrespective of success or failure.
         // HINT:
-        //  Use a thenCombine() with an executor to combine, return an empty
-        //  string for the BiFunction. Return an interimEmptyMessage ("") for each stage.
-        //  Use a handleAsync() with an executor to run with a possible exception
-        //  or successful result (choppingComplete).
+        //  Chain three instance method thenCombine()s on choppingStarter with executors,
+        //  return an empty string for the BiFunction.
+        //  Return the declared 'interimEmptyMessage' for each "stage".
+        //  Chain an instance method handleAsync() on the last stage, with an executor
+        //  to run with a possible exception or successful result 'choppingComplete' declared above..
         CompletableFuture<String> overallChopping = choppingStarter
                 .thenCombine(chopOnions(), (choppingStarterMessage, choppingOnionsMessage) -> {
                     LOGGER.info(choppingStarterMessage);
@@ -138,6 +138,7 @@ public class SolutionPart2bMakeMasala {
 
         return overallChopping;
     }
+
     CompletableFuture<String> heatButterAndOil(String previousTaskMessage) {
 
         ThreadContext.put(RECIPE_PART, RECIPE_PART_VALUE);
@@ -226,12 +227,12 @@ public class SolutionPart2bMakeMasala {
         //  then log the result asynchronously. Finally log a message, asynchronously
         //  that the base ingredients are cooked.
         // HINT:
-        //  Use thenComposeAsync(), thenApplyAsync(), thenAcceptAsync()
-        //  and thenRunAsync() with executors.
-        //  Use the thenComposeAsync to heat and to crackle.
-        //  Use the thenApplyAsync to fry.
-        //  Use a thenAcceptAsync to log the output of the above chained operations.
-        //  Use a thenRunAsync to log the successMessage.
+        //  Chain instance methods thenComposeAsync(), thenApplyAsync(), thenAcceptAsync()
+        //  and thenRunAsync() with executors as stages on chopOnionsGarlicAndGinger():
+        //  Use the thenComposeAsync() to heat and to crackle, on chopOnionsGarlicAndGinger().
+        //  Chain a thenApplyAsync() to fry onions, garlic and ginger.
+        //  Chain a thenAcceptAsync() to log the output of the above chained operations.
+        //  Chain a thenRunAsync() to log the 'successMessage' declared above.
         CompletableFuture<Void> cookingTheBaseIngredients = chopOnionsGarlicAndGinger()
                 .thenComposeAsync(this::heatButterAndOil, executor)
                 .thenComposeAsync(this::crackleCuminAndCinnamon, executor)
