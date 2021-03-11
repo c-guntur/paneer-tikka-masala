@@ -51,98 +51,6 @@ public class SolutionPart1CheckIngredients {
     private static final String DISHWASHER_RUNNING = "Dishwasher Running ...";
 
     /**
-     * Check the ingredients required for the Paneer Tikka, the Masala as well as garnish.
-     */
-    public boolean checkIngredients() {
-
-        // Used for logging the Mapped Diagnostic Context for each logging statement.
-        ThreadContext.put(RECIPE_PART, RECIPE_PART_VALUE);
-
-        LOGGER.info("Paneer (Indian Cottage Cheese)/Firm Tofu - 250g (½ lb)");
-        LOGGER.info("Unsweetened Yogurt - 3 tablespoons");
-        LOGGER.info("Ginger - ½ inch-long portion (or if crushed or paste - ½ teaspoon)");
-        LOGGER.info("Garlic - 3 cloves of Garlic (or if crushed or paste - 1½ teaspoon)");
-        LOGGER.info("Coriander (cilantro seed) Powder - 1 teaspoon");
-        LOGGER.info("Salt - 2 teaspoons");
-        LOGGER.info("Red Onion - 1 medium-sized or 1 large");
-        LOGGER.info("Tomatoes - 4 medium-sized  or equivalent in other sizes");
-        LOGGER.info("Cumin Seeds - ½ teaspoon");
-        LOGGER.info("Cinnamon - 1 stick or ½ teaspoon if powder");
-        LOGGER.info("Curry Powder - 1½ teaspoons");
-        LOGGER.info("Sugar - 1 tablespoon");
-        LOGGER.info("Cream - 2 tablespoons");
-        LOGGER.info("Cilantro Leaves - 5 stems, if pre-chopped, 2 tablespoons");
-        LOGGER.info("Water - 1 cup");
-        LOGGER.info("Oil - 1 tablespoon");
-        LOGGER.info("Butter - 1 tablespoon or equivalent");
-        LOGGER.info("Lemon Juice - to taste");
-
-        // Check both Paprika and Chilli Powder (we find Chilli Powder but no Paprika)
-        checkForPaprikaAndChilliPowder();
-
-        // Could not find Garam Masala, a store trip is necessary !
-        if (getGaramMasala()) {
-            LOGGER.info("Garam Masala (mixed Indian spices) - ½ teaspoon");
-        } else {
-            LOGGER.error("NEED to get Garam Masala from the store !");
-        }
-
-        return true;
-    }
-
-    /**
-     * Check for Paprika and Red Chilli Powder.
-     * The intent is to find Red Chilli Powder, but no Paprika Powder.
-     * The find operations are done in other methods.
-     * <p>
-     * Justification:
-     * Show how values from completed futures can be used.
-     * A successful CF can use a get() operation,
-     * while a failed CF can avail a whenComplete()
-     */
-    void checkForPaprikaAndChilliPowder() {
-
-        // TO DO:
-        //  Fix the successfulFindChilliPowder()
-        CompletableFuture<String> checkForChilliPowder =
-                (CompletableFuture<String>) successfulFindChilliPowder();
-
-        // TO DO:
-        //  Check if the checkForChilliPowder is done. Replace the 'false' with a check.
-        // HINT:
-        //  Use the isDone() method.
-        if (checkForChilliPowder.isDone()) {
-            try {
-                // a get() waits for the CF to complete, then returns its result.
-                // TO DO:
-                //  Get the value from the checkForChilliPowder. Replace the empty string
-                //  with the result of the CompletableFuture.
-                // HINT:
-                //  Use the get() method on checkForChilliPowder.
-                //  Update the exceptions that are caught.
-                LOGGER.info("{} - ½ teaspoon", checkForChilliPowder.get());
-            } catch (InterruptedException | ExecutionException e) {
-                e.printStackTrace();
-            }
-        }
-
-        // TO DO:
-        //  Fix the unsuccessfulFindPaprikaPowder()
-        CompletableFuture<String> checkForPaprikaPowder =
-                (CompletableFuture<String>) unsuccessfulFindPaprikaPowder();
-
-        // a whenComplete() returns a new CompletionStage with the same result or exception as
-        // this stage, that executes the given action when this stage completes.
-        // TO DO:
-        //  Handle the exception from the checkForPaprikaPowder.
-        // HINT:
-        //  Use the whenComplete method and LOG an warn message.
-        //  Log the exception message as a warning.
-        checkForPaprikaPowder.whenComplete((message, exception) ->
-                LOGGER.warn(exception.getMessage()));
-    }
-
-    /**
      * Successfully find Red Chilli Powder.
      * <p>
      * Justification:
@@ -179,6 +87,67 @@ public class SolutionPart1CheckIngredients {
         //  Use the Exception's string constructor with exceptionMessage.
         return CompletableFuture.failedFuture(
                 new PaprikaNotFoundException(exceptionMessage));
+    }
+
+    /**
+     * Check for Paprika and Red Chilli Powder.
+     * The intent is to find Red Chilli Powder, but no Paprika Powder.
+     * The find operations are done in other methods.
+     * <p>
+     * Justification:
+     * Show how values from completed futures can be used.
+     * A successful CF can use a get() operation,
+     * while a failed CF can avail a whenComplete()
+     */
+    void checkForPaprikaAndChilliPowder() {
+
+        CompletableFuture<String> checkForChilliPowder =
+                (CompletableFuture<String>) successfulFindChilliPowder();
+
+        // TO DO:
+        //  Check if the checkForChilliPowder is done. Replace the 'false' with a check.
+        // HINT:
+        //  Use the isDone() method.
+        if (checkForChilliPowder.isDone()) {
+            try {
+                // a get() waits for the CF to complete, then returns its result.
+                // TO DO:
+                //  Get the value from the checkForChilliPowder. Replace the empty string
+                //  with the result of the CompletableFuture.
+                // HINT:
+                //  Use the get() method on checkForChilliPowder.
+                //  Update the exceptions that are caught.
+                LOGGER.info("{} - ½ teaspoon", checkForChilliPowder.get());
+            } catch (InterruptedException | ExecutionException e) {
+                e.printStackTrace();
+            }
+        }
+
+        CompletableFuture<String> checkForPaprikaPowder =
+                (CompletableFuture<String>) unsuccessfulFindPaprikaPowder();
+
+        // a whenComplete() returns a new CompletionStage with the same result or exception as
+        // this stage, that executes the given action when this stage completes.
+        // TO DO:
+        //  Handle the exception from the checkForPaprikaPowder.
+        // HINT:
+        //  Use the whenComplete method and LOG an warn message.
+        //  Log the exception message as a warning.
+        checkForPaprikaPowder.whenComplete((message, exception) ->
+                LOGGER.warn(exception.getMessage()));
+    }
+
+    /**
+     * Things to do while we're out grocery shopping for Garam Masala.
+     */
+    private void getPotsAndPansReady() {
+        ThreadContext.put(RECIPE_PART, DISHWASHER_RUNNING);
+        LOGGER.info("Dishwasher running");
+        try {
+            Thread.sleep(100L);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
     }
 
     /**
@@ -241,15 +210,42 @@ public class SolutionPart1CheckIngredients {
     }
 
     /**
-     * Things to do while we're out grocery shopping for Garam Masala.
+     * Check the ingredients required for the Paneer Tikka, the Masala as well as garnish.
      */
-    private void getPotsAndPansReady() {
-        ThreadContext.put(RECIPE_PART, DISHWASHER_RUNNING);
-        LOGGER.info("Dishwasher running");
-        try {
-            Thread.sleep(100L);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
+    public boolean checkIngredients() {
+
+        // Used for logging the Mapped Diagnostic Context for each logging statement.
+        ThreadContext.put(RECIPE_PART, RECIPE_PART_VALUE);
+
+        LOGGER.info("Paneer (Indian Cottage Cheese)/Firm Tofu - 250g (½ lb)");
+        LOGGER.info("Unsweetened Yogurt - 3 tablespoons");
+        LOGGER.info("Ginger - ½ inch-long portion (or if crushed or paste - ½ teaspoon)");
+        LOGGER.info("Garlic - 3 cloves of Garlic (or if crushed or paste - 1½ teaspoon)");
+        LOGGER.info("Coriander (cilantro seed) Powder - 1 teaspoon");
+        LOGGER.info("Salt - 2 teaspoons");
+        LOGGER.info("Red Onion - 1 medium-sized or 1 large");
+        LOGGER.info("Tomatoes - 4 medium-sized  or equivalent in other sizes");
+        LOGGER.info("Cumin Seeds - ½ teaspoon");
+        LOGGER.info("Cinnamon - 1 stick or ½ teaspoon if powder");
+        LOGGER.info("Curry Powder - 1½ teaspoons");
+        LOGGER.info("Sugar - 1 tablespoon");
+        LOGGER.info("Cream - 2 tablespoons");
+        LOGGER.info("Cilantro Leaves - 5 stems, if pre-chopped, 2 tablespoons");
+        LOGGER.info("Water - 1 cup");
+        LOGGER.info("Oil - 1 tablespoon");
+        LOGGER.info("Butter - 1 tablespoon or equivalent");
+        LOGGER.info("Lemon Juice - to taste");
+
+        // Check both Paprika and Chilli Powder (we find Chilli Powder but no Paprika)
+        checkForPaprikaAndChilliPowder();
+
+        // Could not find Garam Masala, a store trip is necessary !
+        if (getGaramMasala()) {
+            LOGGER.info("Garam Masala (mixed Indian spices) - ½ teaspoon");
+        } else {
+            LOGGER.error("NEED to get Garam Masala from the store !");
         }
+
+        return true;
     }
 }

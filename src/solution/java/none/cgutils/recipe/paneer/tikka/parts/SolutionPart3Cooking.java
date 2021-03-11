@@ -35,23 +35,6 @@ public class SolutionPart3Cooking {
         this.executor = executor;
     }
 
-    public CompletableFuture<Void> cook() {
-        // TO DO:
-        //  Fix the other TODOs below, then :
-        //  Roast or grill the paneer,chop the cilantro then,
-        //  heat the pureed masala, then the cream and cilantro.
-        //  Then, Cook and then garnish.
-        // HINT:
-        //  Use an allOf to complete the roasting/grilling and the chopping of cilantro.
-        //  Use thenComposeAsync() with an executor to call a heat/puree and once more
-        //      to cook with cream and cilantro.
-        //  Use a thenRunAsync() with an executor to garnish.
-        return CompletableFuture.allOf(roastOrGrillPaneer(), chopCilantro())
-                .thenComposeAsync(this::heatPureedMasala, executor)
-                .thenComposeAsync(this::addCreamAndCilantroAndCook, executor)
-                .thenRunAsync(this::garnish, executor);
-    }
-
     CompletableFuture<Void> chopCilantro() {
 
         ThreadContext.put(RECIPE_PART, RECIPE_PART_VALUE);
@@ -78,9 +61,9 @@ public class SolutionPart3Cooking {
         }, executor).join();
 
         // TO DO:
-        //  Create a delayed executor.
+        //  Create a delayed executor from the provided one.
         // HINT:
-        //  Use a delayedExecutor() static method with 20 second delay.
+        //  Use a delayedExecutor() static method with 20 second delay and current executor.
         Executor delayedExecutor = CompletableFuture.delayedExecutor(20, TimeUnit.SECONDS, this.executor);
 
         // TO DO:
@@ -191,5 +174,21 @@ public class SolutionPart3Cooking {
             LOGGER.warn(ex.getCause().getMessage());
             return false;
         });
+    }
+
+    public CompletableFuture<Void> cook() {
+        // TO DO:
+        //  Roast or grill the paneer,chop the cilantro then,
+        //  heat the pureed masala, then the cream and cilantro.
+        //  Then, Cook and then garnish.
+        // HINT:
+        //  Use an allOf to complete the roasting/grilling and the chopping of cilantro.
+        //  Use thenComposeAsync() with an executor to call a heat/puree and once more
+        //      to cook with cream and cilantro.
+        //  Use a thenRunAsync() with an executor to garnish.
+        return CompletableFuture.allOf(roastOrGrillPaneer(), chopCilantro())
+                .thenComposeAsync(this::heatPureedMasala, executor)
+                .thenComposeAsync(this::addCreamAndCilantroAndCook, executor)
+                .thenRunAsync(this::garnish, executor);
     }
 }

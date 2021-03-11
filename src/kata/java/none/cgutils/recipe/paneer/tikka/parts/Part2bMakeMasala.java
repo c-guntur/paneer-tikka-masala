@@ -13,11 +13,15 @@ import static none.cgutils.recipe.paneer.tikka.parts.RecipePart.delayMinutes;
 /*
     Instructions for Masala
 
-    1. Heat 1 tbsp of butter and 1 tbsp of oil in a pan. Once hot add cinnamon stick and cumin seeds.
-    2. Once the seeds crackle, add the chopped onions, crushed garlic pods and chopped ginger. Fry till onions turn golden brown in color.
-    3. Once onions are done, add the tomatoes and the curry powder and mix. Also add the the salt and sugar.
-    4. Cook the tomatoes on medium flame till they are soft, around 6-7 minutes.
-    5. Once the mixture is cooked, switch off the flame and allow it to cool a bit. Pour the mixture into a blender and puree it. Set aside.
+    1. Heat 1 tbsp of butter and 1 tbsp of oil in a pan.
+    2. Once hot add cinnamon stick and cumin seeds.
+    3. Once the seeds crackle, add the chopped onions, crushed garlic pods and chopped ginger.
+    4. Fry till onions turn golden brown in color.
+    5. Once onions are done, add the tomatoes and the curry powder and mix.
+    6. Also add the the salt and sugar.
+    7. Cook the tomatoes on medium flame till they are soft, around 6-7 minutes.
+    8. Once the mixture is cooked, switch off the flame and allow it to cool a bit.
+    9. Pour the mixture into a blender and puree it. Set aside.
 */
 public class Part2bMakeMasala {
 
@@ -30,97 +34,6 @@ public class Part2bMakeMasala {
     public Part2bMakeMasala(Executor executor) {
 
         this.executor = executor;
-    }
-
-    public CompletableFuture<String> prepareMasala() {
-
-        ThreadContext.put(RECIPE_PART, RECIPE_PART_VALUE);
-        LOGGER.info("Making the Masala");
-
-        String successMessage = "Base ingredients are cooked";
-
-        // TODO:
-        //  Fix the other TODOs below, then :
-        //  Chain the chopping, heating oil, crackling spices,
-        //  frying the allia and ginger in an asynchronous set of operations,
-        //  then log the result asynchronously. Finally log a message, asynchronously
-        //  that the base ingredients are cooked.
-        // HINT:
-        //  Use thenComposeAsync(), thenApplyAsync(), thenAcceptAsync()
-        //  and thenRunAsync() with executors.
-        //  Use the thenComposeAsync to heat and to crackle.
-        //  Use the thenApplyAsync to fry.
-        //  Use a thenAcceptAsync to log the output of the above chained operations.
-        //  Use a thenRunAsync to log the successMessage.
-        CompletableFuture<Void> cookingTheBaseIngredients = new CompletableFuture<>();
-
-
-
-
-
-
-
-
-
-        // How to use a Void
-        CompletableFuture<Void> cookTomatoesInSpiceBase =
-                cookingTheBaseIngredients
-                        .whenComplete((Void v, Throwable throwable) -> addTomatoesAndCurryPowderAndCook());
-
-        // Still might use the executor, if it is around. See logs.
-        cookTomatoesInSpiceBase.thenAccept(this::coolAndPuree);
-        cookTomatoesInSpiceBase.join();
-
-        return CompletableFuture.supplyAsync(() -> {
-            ThreadContext.put(RECIPE_PART, RECIPE_PART_VALUE);
-            return "Done making the Masala";
-        }, executor);
-    }
-
-    CompletableFuture<String> chopOnionsGarlicAndGinger() {
-
-        ThreadContext.put(RECIPE_PART, RECIPE_PART_VALUE);
-
-        CompletableFuture<String> choppingStarter = CompletableFuture
-                .supplyAsync(() -> "Chopping the main ingredients for Paneer Tikka");
-
-        String choppingComplete = "Completed chopping paneer, ginger, garlic and tomatoes";
-        String interimEmptyMessage = "";
-
-        // TODO:
-        //  Use your helpers to chop things at the same time! Use a future that
-        //  will run irrespective of success or failure.
-        // HINT:
-        //  Use a thenCombine() with an executor to combine, return an empty
-        //  string for the BiFunction. Return an interimEmptyMessage ("") for each stage.
-        //  Use a handleAsync() with an executor to run with a possible exception
-        //  or successful result (choppingComplete).
-        CompletableFuture<String> overallChopping = choppingStarter;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-        overallChopping.join();
-
-        return overallChopping;
     }
 
     CompletableFuture<String> chopOnions() {
@@ -177,6 +90,52 @@ public class Part2bMakeMasala {
                     "Chopping Tomatoes");
             return "Chopped Tomatoes";
         }, executor);
+    }
+
+    CompletableFuture<String> chopOnionsGarlicAndGinger() {
+
+        ThreadContext.put(RECIPE_PART, RECIPE_PART_VALUE);
+
+        CompletableFuture<String> choppingStarter = CompletableFuture
+                .supplyAsync(() -> "Chopping the main ingredients for Paneer Tikka");
+
+        String choppingComplete = "Completed chopping paneer, ginger, garlic and tomatoes";
+        String interimEmptyMessage = "";
+
+        // TODO:
+        //  Use your helpers to chop things at the same time! Use a future that
+        //  will run irrespective of success or failure.
+        // HINT:
+        //  Use a thenCombine() with an executor to combine, return an empty
+        //  string for the BiFunction. Return an interimEmptyMessage ("") for each stage.
+        //  Use a handleAsync() with an executor to run with a possible exception
+        //  or successful result (choppingComplete).
+        CompletableFuture<String> overallChopping = choppingStarter;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        overallChopping.join();
+
+        return overallChopping;
     }
 
     CompletableFuture<String> heatButterAndOil(String previousTaskMessage) {
@@ -252,5 +211,49 @@ public class Part2bMakeMasala {
             LOGGER.info("Blending the masala mix");
             delayMinutes(5L, "Making the masala Puree");
         }, executor).join();
+    }
+
+    public CompletableFuture<String> prepareMasala() {
+
+        ThreadContext.put(RECIPE_PART, RECIPE_PART_VALUE);
+        LOGGER.info("Making the Masala");
+
+        String successMessage = "Base ingredients are cooked";
+
+        // TODO:
+        //  Chain the chopping, heating oil, crackling spices,
+        //  frying the allia and ginger in an asynchronous set of operations,
+        //  then log the result asynchronously. Finally log a message, asynchronously
+        //  that the base ingredients are cooked.
+        // HINT:
+        //  Use thenComposeAsync(), thenApplyAsync(), thenAcceptAsync()
+        //  and thenRunAsync() with executors.
+        //  Use the thenComposeAsync to heat and to crackle.
+        //  Use the thenApplyAsync to fry.
+        //  Use a thenAcceptAsync to log the output of the above chained operations.
+        //  Use a thenRunAsync to log the successMessage.
+        CompletableFuture<Void> cookingTheBaseIngredients = new CompletableFuture<>();
+
+
+
+
+
+
+
+
+
+        // How to use a Void
+        CompletableFuture<Void> cookTomatoesInSpiceBase =
+                cookingTheBaseIngredients
+                        .whenComplete((Void v, Throwable throwable) -> addTomatoesAndCurryPowderAndCook());
+
+        // Still might use the executor, if it is around. See logs.
+        cookTomatoesInSpiceBase.thenAccept(this::coolAndPuree);
+        cookTomatoesInSpiceBase.join();
+
+        return CompletableFuture.supplyAsync(() -> {
+            ThreadContext.put(RECIPE_PART, RECIPE_PART_VALUE);
+            return "Done making the Masala";
+        }, executor);
     }
 }
