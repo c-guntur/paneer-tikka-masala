@@ -78,9 +78,10 @@ public class SolutionPart2aMakePaneerTikka {
         //  Compose all chopping in a chained sequence and then log the success.
         //  Use either lambdas or method references, since each method takes a priorStatus String.
         // HINT:
-        //  Use three thenCompose(), pass the previous CF's result.
-        //  Once all chopping is done, call a thenApply() to return a successful completion
-        //  of the chopping.
+        //  Chain three instance method thenCompose() on choppingStarter, pass the previous
+        //  CompletableFuture's result.
+        //  Once all chopping is done, call an instance method thenApply() on the chain to return a
+        //  successful completion of the chopping.
         //  The return of the thenApply() is the choppingComplete string.
         return choppingStarter
                 .thenCompose(this::chopPaneer)
@@ -114,16 +115,17 @@ public class SolutionPart2aMakePaneerTikka {
         // TO DO:
         //  Use a thenCompose to trigger a mix after everything is chopped.
         // HINT:
-        //  Use a thenCompose() on the chopStuff() CompletableFuture
-        //  and call a supplyAsync to mixStuff(chopStuff() output).
+        //  Use an instance method thenCompose() on the chopStuff() result CompletableFuture
+        //  and call a supplyAsync to mixStuff() passing in the output of the chopStuff().
         CompletableFuture<String> choppingAndMixingCompletableFuture = chopStuff()
                 .thenCompose(
                         (String choppingStatus) ->
                                 CompletableFuture.supplyAsync(() -> mixStuff(choppingStatus)));
 
         // TO DO:
-        //  Get the result of the CompletableFuture.
-        // HINT: Use a join() to skip setting a try-catch block
+        //  Get the result of the CompletableFuture, using a join(), to skip setting a
+        //  try-catch block.
+        // HINT: Use an instance method join() on choppingAndMixingCompletableFuture
         choppingAndMixingCompletableFuture.join();
 
         return choppingAndMixingCompletableFuture;
