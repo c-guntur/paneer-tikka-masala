@@ -67,7 +67,7 @@ public class SolutionPart1CheckIngredients {
         // HINT:
         //  • Use the static CompletableFuture.completedFuture() method with
         //    the successMessage.
-        return null;
+        return CompletableFuture.completedFuture(successMessage);
     }
 
     /**

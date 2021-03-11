@@ -171,13 +171,13 @@ public class Part3Cooking {
         //  • Use the instance method thenApply() on the booleanCompletableFuture to log the
         //    'positiveMessage' declared above at an info-level.
         //  • Chain an instance method exceptionally() to log the message of the exception.
-        booleanCompletableFuture.thenApply(aBoolean -> {
-            LOGGER.info(positiveMessage);
-            return null;
-        }).exceptionally(ex -> {
-            LOGGER.warn(ex.getCause().getMessage());
-            return false;
-        });
+
+
+
+
+
+
+
     }
 
     public CompletableFuture<Void> cook() {
