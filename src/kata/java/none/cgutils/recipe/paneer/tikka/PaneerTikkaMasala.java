@@ -46,7 +46,7 @@ public class PaneerTikkaMasala {
         //  Prepare the Paneer Tikka and then marinate them using an executor.
         // HINT:
         //  • Use an instance method thenComposeAsync() on makePaneerTikka.preparePaneerTikka(),
-        //    to call the marinateMixedTkkas(), with the executor.
+        //    to call the marinateMixedTikkas(), with the executor.
         CompletableFuture<String> paneerTikka =
                 CompletableFuture.supplyAsync(() -> "Fix this");
 
