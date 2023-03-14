@@ -5,7 +5,7 @@
 
 Introduced in Java 8 (2014).
 
-A link:https://docs.oracle.com/en/java/javase/15/docs/api/java.base/java/util/concurrent/CompletableFuture.html[`java.util.concurrent.CompletableFuture`] is a complete implementation of *both* `Future` and `CompletionStage`.
+A link:https://download.java.net/java/early_access/jdk21/docs/api/java.base/java/util/concurrent/CompletableFuture.html[`java.util.concurrent.CompletableFuture`] is a complete implementation of *both* `Future` and `CompletionStage`.
 
 CompletableFuture provides static methods as means to execute the tasks.
 
@@ -18,8 +18,8 @@ CompletableFuture allows for chaining and combining outcomes from multiple other
 |===
 |Pattern in method name |Description
 
-|`*run/Run*`|Perform a task without a return value, using a https://docs.oracle.com/en/java/javase/15/docs/api/java.base/java/lang/Runnable.html[Runnable].
-|`*supply/Supply*`|Perform a task that returns a value, using a https://docs.oracle.com/en/java/javase/15/docs/api/java.base/java/util/function/Supplier.html[Supplier].
+|`*run/Run*`|Perform a task without a return value, using a https://download.java.net/java/early_access/jdk21/docs/api/java.base/java/lang/Runnable.html[Runnable].
+|`*supply/Supply*`|Perform a task that returns a value, using a https://download.java.net/java/early_access/jdk21/docs/api/java.base/java/util/function/Supplier.html[Supplier].
 |===
 
 === Synchronicity
@@ -81,11 +81,13 @@ Each Stage may produce an output or signal when completed successfully.
 Any stage can fail, leading to an exception. The exception can be handled.
 A handling of an exception may cause the pipeline to be repaired or may be fatal enough to fail.
 
-
-```
+[source]
+----
                    /----S--o--S--o--S--------------S--o--S--o----SUCCESS
-                  /                 \              /
-CompletableFuture                    |            |
+                  /                  \            /
+CompletableFuture                     | f         | r
                   \                   \          /
                    \-------------------E--h--E--h--E--h----------FAILURE
-```
+
+S = Stage, o = output, f= failure, E = Exception, h = handling, r = repair.
+----

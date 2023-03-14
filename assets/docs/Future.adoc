@@ -5,7 +5,7 @@
 
 Introduced in Java 5 (2004).
 
-A link:https://docs.oracle.com/en/java/javase/15/docs/api/java.base/java/util/concurrent/Future.html[`java.util.concurrent.Future`] is a placeholder for a result of a computation task that hasn't finished yet.
+A link:https://download.java.net/java/early_access/jdk21/docs/api/java.base/java/util/concurrent/Future.html[`java.util.concurrent.Future`] is a placeholder for a result of a computation task that hasn't finished yet.
 
 Once the task completes, the Future holds the result.
 

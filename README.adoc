@@ -1,4 +1,5 @@
 = Java CompletableFuture : A Cooking Recipe Kata
+:figure-caption!:
 :toc:
 
 image::https://github.com/c-guntur/paneer-tikka-masala/workflows/build/badge.svg?branch=main[link=https://github.com/c-guntur/paneer-tikka-masala/actions?query=workflow%3A%22build%22,title="build"]
@@ -44,10 +45,10 @@ image:assets/images/recipe.png[Recipe, 400]
 . Run the main class link:src/kata/java/none/cgutils/recipe/paneer/tikka/PaneerTikkaMasala.java[PaneerTikkaMasala].
 . None of the cooking recipe parts will print out on your console.
 . Fix the broken/empty sections of code using the TODO and HINT comments.
-. Repeat above steps until all recipe parts are printed.
+. Repeat above steps until all recipe steps (_123, in count_) are printed.
 . Check the solutions to see if there are other ways to solve.
 (Remember, the solution may be less performant than yours)
-. Rinse and repeat (delete and checkout again, then back to Step 1) to build muscle memory.
+. Rinse and repeat (_delete project and checkout again, then back to Step 1_) to build muscle memory.
 
 ==== Order of solving
 Start in the following oder to fix the broken code or add code where empty. Follow the TODOs and HINTs. Your IDE should list out all TODOs.
@@ -64,7 +65,7 @@ Start in the following oder to fix the broken code or add code where empty. Foll
 *Mission*
 
 Your mission, should you choose to accept it, will be to fix the recipe.
-This message will self-destruct in* *NaN* minutes
+This message will self-destruct in* *NaN* 😎 minutes
 ****
 
 === Requirements
@@ -72,13 +73,13 @@ How to prepare for coding along
 
 This kata is developed as a Java maven project. Ensure that you have:
 
-1. Apache Maven 3.6.x or above. _Tested with Apache Maven 3.6.3_.
+1. Apache Maven 3.8.x or above. _Tested with Apache Maven 3.8.7_.
 Link: https://maven.apache.org/download.cgi
 
-1. JDK 11 or above. _Tested with OpenJDK 15_.
-Link: http://jdk.java.net/15/
+1. JDK 11 or above. _Tested with OpenJDK 21 Early-Access Builds_.
+Link: http://jdk.java.net/21/
 
-1. Your favorite Java IDE. _IntelliJ IDEA Ultimate was used to develop this kata_.
+1. Your favorite Java IDE. NOTE: _IntelliJ IDEA Ultimate was used to develop this kata_.
 
 == Project Structure
 ----
