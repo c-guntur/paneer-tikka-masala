@@ -29,8 +29,8 @@ class Part1CheckIngredientsTest {
 
     @Test
     void successfulFindChilliPowder() {
-        Future<String> chilliPowederFound = checkIngredients.successfulFindChilliPowder();
-        assertTrue(chilliPowederFound instanceof CompletableFuture);
+        Future<String> chilliPowderFound = checkIngredients.successfulFindChilliPowder();
+        assertTrue(chilliPowderFound instanceof CompletableFuture);
     }
 
     @Test

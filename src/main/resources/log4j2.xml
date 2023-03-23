@@ -49,6 +49,9 @@
         <Logger name="none.cgutils.recipe.paneer.tikka.parts.Part1CheckIngredients" level="debug" additivity="false">
             <AppenderRef ref="CheckIngredients"/>
         </Logger>
+        <Logger name="none.cgutils.recipe.paneer.tikka.parts.HowToPart1CheckIngredients" level="debug" additivity="false">
+            <AppenderRef ref="CheckIngredients"/>
+        </Logger>
         <Logger name="none.cgutils.recipe.paneer.tikka.parts.SolutionPart1CheckIngredients" level="debug" additivity="false">
             <AppenderRef ref="CheckIngredients"/>
         </Logger>

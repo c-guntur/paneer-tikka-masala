@@ -41,9 +41,9 @@ import static none.cgutils.recipe.paneer.tikka.parts.RecipePart.delayMinutes;
         1 tablespoon salted butter
         1 teaspoon salt to taste
 */
-public class SolutionPart1CheckIngredients {
+public class HowToPart1CheckIngredients {
 
-    private static final Logger LOGGER = LogManager.getLogger(SolutionPart1CheckIngredients.class);
+    private static final Logger LOGGER = LogManager.getLogger(HowToPart1CheckIngredients.class);
 
     private static final String RECIPE_PART_VALUE = "Check Ingredients";
 
@@ -105,20 +105,9 @@ public class SolutionPart1CheckIngredients {
         CompletableFuture<String> checkForChilliPowder =
                 (CompletableFuture<String>) successfulFindChilliPowder();
 
-        // TO DO:
-        //  Check if the checkForChilliPowder is done. Replace the 'false' with a checkForChilliPowder.isDone().
-        // HINT:
-        //  • Use the instance method isDone() on checkForChilliPowder.
-        if (checkForChilliPowder.isDone()) { //Replace 'false' with checkForChilliPowder.?i?D?ne()
+        if (checkForChilliPowder.isDone()) {
             try {
                 // a get() waits for the CF to complete, then returns its result.
-                // TO DO:
-                //  Get the value from the checkForChilliPowder. Replace the empty string
-                //  with the result of the CompletableFuture.
-                //  Also, replace the Throwable with the appropriate exceptions.
-                // HINT:
-                //  • Use the instance method get() on checkForChilliPowder.
-                //  • Update the exceptions that are caught.
                 LOGGER.info("{} - ½ teaspoon", checkForChilliPowder.get());
             } catch (InterruptedException | ExecutionException e) {
                 e.printStackTrace();
@@ -130,12 +119,6 @@ public class SolutionPart1CheckIngredients {
 
         // a whenComplete() returns a new CompletionStage with the same result or exception as
         // this stage, that executes the given action when this stage completes.
-        // TO DO:
-        //  Uncomment the below code.
-        //  Replace the wildcards ('?') with the actual method.
-        // HINT:
-        //  • Use the instance method whenComplete() on checkForPaprikaPowder to log at warn-level
-        //    for the exception message.
         checkForPaprikaPowder.whenComplete((message, exception) ->
                 LOGGER.warn(exception.getMessage()));
 
@@ -153,11 +136,6 @@ public class SolutionPart1CheckIngredients {
 
         // completedFuture() returns a new CompletableFuture that is already completed with the
         // given value.
-        // TO DO:
-        //  Create a completedFuture. Replace the null with a successMessage.
-        // HINT:
-        //  • Use the static CompletableFuture.completedFuture() method with
-        //    the successMessage.
         return CompletableFuture.completedFuture(successMessage);
 
     }
@@ -174,12 +152,7 @@ public class SolutionPart1CheckIngredients {
 
         // failedFuture() returns a new CompletableFuture that is already completed
         // exceptionally with the given exception.
-        // TO DO:
-        //  Uncomment the below code.
-        //  Replace the wildcards ('?') with the actual method.
-        // HINT:
-        //  • Use the static CompletableFuture.failedFuture() method with
-        //    a new PaprikaNotFoundException(exceptionMessage).
+
         returnValue = CompletableFuture.failedFuture(
                 new PaprikaNotFoundException(exceptionMessage));
 
@@ -209,14 +182,6 @@ public class SolutionPart1CheckIngredients {
         // Create an async process to go to the store
         // runAsync() takes a Runnable as an input parameter
         // and returns a CompletableFuture<Void>.
-        // TO DO:
-        //  Uncomment the below code.
-        //  Replace the wildcards ('?') with the proper command
-        // HINT:
-        //  • Use the static CompletableFuture.runAsync() method.
-        //  • Add a ThreadContext for pretty logging:
-        //     • ThreadContext.put(RECIPE_PART, RECIPE_PART_VALUE);
-        //  • Use the delayMinutes(30L, delayReason) from the RecipePart.java
         getGaramMasalaFromStore = CompletableFuture
                 .runAsync(() -> {
                     ThreadContext.put(RECIPE_PART, RECIPE_PART_VALUE);
@@ -263,6 +228,6 @@ public class SolutionPart1CheckIngredients {
     }
 
     public static void main(String[] args) {
-        new SolutionPart1CheckIngredients().checkIngredients();
+        new HowToPart1CheckIngredients().checkIngredients();
     }
 }

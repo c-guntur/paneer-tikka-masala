@@ -51,168 +51,6 @@ public class Part1CheckIngredients {
     private static final String DISHWASHER_RUNNING = "Dishwasher Running ...";
 
     /**
-     * Successfully find Red Chilli Powder.
-     * <p>
-     * Justification:
-     * Show how to create a completedFuture(...)
-     */
-    Future<String> successfulFindChilliPowder() {
-
-        String successMessage = "Red Chilli Powder";
-
-        // completedFuture() returns a new CompletableFuture that is already completed with the
-        // given value.
-        // TODO:
-        //  Create a completedFuture. Replace the null with a completedFuture.
-        // HINT:
-        //  • Use the static CompletableFuture.completedFuture() method with
-        //    the successMessage.
-        return null;
-    }
-
-    /**
-     * Fail to find Paprika Powder.
-     * Show how to create a failedFuture(...)
-     */
-    Future<String> unsuccessfulFindPaprikaPowder() {
-
-        String exceptionMessage = "Paprika Powder not found";
-
-        // failedFuture() returns a new CompletableFuture that is already completed
-        // exceptionally with the given exception.
-        // TODO:
-        //  Create a failedFuture. Replace the null with a failedFuture.
-        // HINT:
-        //  • Use the static CompletableFuture.failedFuture() method with
-        //    a new PaprikaNotFoundException(exceptionMessage).
-        return null;
-
-    }
-
-    /**
-     * Check for Paprika and Red Chilli Powder.
-     * The intent is to find Red Chilli Powder, but no Paprika Powder.
-     * The find operations are done in other methods.
-     * <p>
-     * Justification:
-     * Show how values from completed futures can be used.
-     * A successful CF can use a get() operation,
-     * while a failed CF can avail a whenComplete()
-     */
-    void checkForPaprikaAndChilliPowder() {
-
-        CompletableFuture<String> checkForChilliPowder =
-                (CompletableFuture<String>) successfulFindChilliPowder();
-
-        // TODO:
-        //  Check if the checkForChilliPowder is done. Replace the 'false' with a check.
-        // HINT:
-        //  • Use the instance method isDone() on checkForChilliPowder.
-        if (false) {
-            try {
-                // a get() waits for the CF to complete, then returns its result.
-                // TODO:
-                //  Get the value from the checkForChilliPowder. Replace the empty string
-                //  with the result of the CompletableFuture.
-                //  Also, replace the Throwable with the appropriate exceptions.
-                // HINT:
-                //  • Use the instance method get() on checkForChilliPowder.
-                //  • Update the exceptions that are caught.
-                LOGGER.info("{} - ½ teaspoon", "");
-            } catch (Throwable e) {
-                e.printStackTrace();
-            }
-        }
-
-        CompletableFuture<String> checkForPaprikaPowder =
-                (CompletableFuture<String>) unsuccessfulFindPaprikaPowder();
-
-        // a whenComplete() returns a new CompletionStage with the same result or exception as
-        // this stage, that executes the given action when this stage completes.
-        // TODO:
-        //  Handle the exception from the checkForPaprikaPowder.
-        //  Add a warn-level log with the exception message
-        // HINT:
-        //  • Use the instance method whenComplete() on checkForPaprikaPowder to log at warn-level
-        //    for the exception message.
-
-
-    }
-
-    /**
-     * Things to do while we're out grocery shopping for Garam Masala.
-     */
-    private void getPotsAndPansReady() {
-        ThreadContext.put(RECIPE_PART, DISHWASHER_RUNNING);
-        LOGGER.info("Dishwasher running");
-        try {
-            Thread.sleep(100L);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
-    }
-
-    /**
-     * Go to the store to get Garam Masala. This takes about 30 minutes.
-     * During the 30 mins, the dishwasher should be running.
-     * Use a runAsync() with a delay while shopping at store
-     * Show that while the CF isDone() is false, other activities can be performed.
-     *
-     * @return - A boolean representing whether or not Garam Masala was found.
-     */
-    boolean getGaramMasala() {
-
-        ThreadContext.put(RECIPE_PART, RECIPE_PART_VALUE);
-        LOGGER.warn("Uh oh ... No Garam Masala ... Going to the store !!!");
-
-        Timer timer = new Timer("Garam Masala Shopping");
-
-        String delayReason = "Store trip for Garam Masala";
-
-        // Create an async process to go to the store
-        // runAsync() takes a Runnable as an input parameter
-        // and returns a CompletableFuture<Void>.
-        // TODO:
-        //  Create a CompletableFuture and run an async set of statements to
-        //  delay for 30 mins while a store trip is made.
-        //  Replace the CompletedFuture() with one that logs a delay or 30 mins for a "Store trip
-        //  for Garam Masala".
-        // HINT:
-        //  • Use the static CompletableFuture.runAsync() method.
-        //  • Add a ThreadContext for pretty logging:
-        //     • ThreadContext.put(RECIPE_PART, RECIPE_PART_VALUE);
-        //  • Use the delayMinutes(30L, delayReason) from the RecipePart.java
-        CompletableFuture<Void> getGaramMasalaFromStore = new CompletableFuture<>();
-
-
-
-
-
-
-
-        // While the CompletableFuture is not done, other activities can be performed
-        // isDone() determines if the CompletableFuture completed (success, failure or exception).
-        while ((!getGaramMasalaFromStore.isDone())) {
-            // TODO:
-            //  Uncomment the below line
-//            getPotsAndPansReady();
-        }
-
-        timer.end();
-
-        ThreadContext.put(RECIPE_PART, INGREDIENT_BOUGHT);
-        LOGGER.info("Returned from the store in {}", timer.getDuration());
-
-        // Verify that the future is done
-        if (getGaramMasalaFromStore.isDone()) {
-            ThreadContext.put(RECIPE_PART, RECIPE_PART_VALUE);
-            return true;
-        }
-
-        return false;
-    }
-
-    /**
      * Check the ingredients required for the Paneer Tikka, the Masala as well as garnish.
      */
     public boolean checkIngredients() {
@@ -250,5 +88,173 @@ public class Part1CheckIngredients {
         }
 
         return true;
+    }
+
+    /**
+     * Check for Paprika and Red Chilli Powder.
+     * The intent is to find Red Chilli Powder, but no Paprika Powder.
+     * The find operations are done in other methods.
+     * <p>
+     * Justification:
+     * Show how values from completed futures can be used.
+     * A successful CF can use a get() operation,
+     * while a failed CF can avail a whenComplete()
+     */
+    void checkForPaprikaAndChilliPowder() {
+
+        CompletableFuture<String> checkForChilliPowder =
+                (CompletableFuture<String>) successfulFindChilliPowder();
+
+        // TODO:
+        //  Check if the checkForChilliPowder is done. Replace the 'false' with a checkForChilliPowder.isDone().
+        // HINT:
+        //  • Use the instance method isDone() on checkForChilliPowder.
+        if (false) { //Replace 'false' with checkForChilliPowder.?i?D?ne()
+            try {
+                // a get() waits for the CF to complete, then returns its result.
+                // TODO:
+                //  Get the value from the checkForChilliPowder. Replace the empty string
+                //  with the result of the CompletableFuture.
+                //  Also, replace the Throwable with the appropriate exceptions.
+                // HINT:
+                //  • Use the instance method get() on checkForChilliPowder.
+                //  • Update the exceptions that are caught.
+                LOGGER.info("{} - ½ teaspoon", ""); // Replace the empty string with checkForChilliPowder.g?t()
+            } catch (Throwable e) {
+                e.printStackTrace();
+            }
+        }
+
+        CompletableFuture<String> checkForPaprikaPowder =
+                (CompletableFuture<String>) unsuccessfulFindPaprikaPowder();
+
+        // a whenComplete() returns a new CompletionStage with the same result or exception as
+        // this stage, that executes the given action when this stage completes.
+        // TODO:
+        //  Uncomment the below code.
+        //  Replace the wildcards ('?') with the actual method.
+        // HINT:
+        //  • Use the instance method whenComplete() on checkForPaprikaPowder to log at warn-level
+        //    for the exception message.
+        //checkForPaprikaPowder.wh??C??pl???((message, exception) ->
+        //        LOGGER.warn(exception.getMessage()));
+
+    }
+
+    /**
+     * Successfully find Red Chilli Powder.
+     * <p>
+     * Justification:
+     * Show how to create a completedFuture(...)
+     */
+    Future<String> successfulFindChilliPowder() {
+
+        String successMessage = "Red Chilli Powder";
+
+        // completedFuture() returns a new CompletableFuture that is already completed with the
+        // given value.
+        // TODO:
+        //  Create a completedFuture. Replace the null with a successMessage.
+        // HINT:
+        //  • Use the static CompletableFuture.completedFuture() method with
+        //    the successMessage.
+        return CompletableFuture.completedFuture(null);
+
+    }
+
+    /**
+     * Fail to find Paprika Powder.
+     * Show how to create a failedFuture(...)
+     */
+    Future<String> unsuccessfulFindPaprikaPowder() {
+
+        String exceptionMessage = "Paprika Powder not found";
+
+        Future<String> returnValue = null;
+
+        // failedFuture() returns a new CompletableFuture that is already completed
+        // exceptionally with the given exception.
+        // TODO:
+        //  Uncomment the below code.
+        //  Replace the wildcards ('?') with the actual method.
+        // HINT:
+        //  • Use the static CompletableFuture.failedFuture() method with
+        //    a new PaprikaNotFoundException(exceptionMessage).
+        //returnValue = CompletableFuture.fail??Future(
+        //        new PaprikaNotFoundException(exceptionMessage));
+
+        return returnValue;
+
+    }
+
+    /**
+     * Go to the store to get Garam Masala. This takes about 30 minutes.
+     * During the 30 mins, the dishwasher should be running.
+     * Use a runAsync() with a delay while shopping at store
+     * Show that while the CF isDone() is false, other activities can be performed.
+     *
+     * @return - A boolean representing whether or not Garam Masala was found.
+     */
+    boolean getGaramMasala() {
+
+        ThreadContext.put(RECIPE_PART, RECIPE_PART_VALUE);
+        LOGGER.warn("Uh oh ... No Garam Masala ... Going to the store !!!");
+
+        Timer timer = new Timer("Garam Masala Shopping");
+
+        String delayReason = "Store trip for Garam Masala";
+
+        CompletableFuture<Void> getGaramMasalaFromStore = null;
+
+        // Create an async process to go to the store
+        // runAsync() takes a Runnable as an input parameter
+        // and returns a CompletableFuture<Void>.
+        getGaramMasalaFromStore = CompletableFuture
+                .runAsync(() -> {
+                    ThreadContext.put(RECIPE_PART, RECIPE_PART_VALUE);
+                    delayMinutes(
+                            30L,
+                            delayReason);
+                });
+
+        // While the CompletableFuture is not done, other activities can be performed
+        // isDone() determines if the CompletableFuture completed (success, failure or exception).
+        while ((!getGaramMasalaFromStore.isDone())) {
+            getPotsAndPansReady();
+        }
+
+        timer.end();
+
+        ThreadContext.put(RECIPE_PART, INGREDIENT_BOUGHT);
+        LOGGER.info("Returned from the store in {}", timer.getDuration());
+
+        // Verify that the future is done
+        if (getGaramMasalaFromStore.isDone()) {
+            ThreadContext.put(RECIPE_PART, RECIPE_PART_VALUE);
+            return true;
+        }
+
+        return false;
+    }
+
+    /**
+     * Things to do while we're out grocery shopping for Garam Masala.
+     */
+    private void getPotsAndPansReady() {
+
+        ThreadContext.put(RECIPE_PART, DISHWASHER_RUNNING);
+
+        LOGGER.info("Dishwasher running");
+
+        try {
+            Thread.sleep(100L);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+
+    }
+
+    public static void main(String[] args) {
+        new Part1CheckIngredients().checkIngredients();
     }
 }
