@@ -209,13 +209,21 @@ public class Part1CheckIngredients {
         // Create an async process to go to the store
         // runAsync() takes a Runnable as an input parameter
         // and returns a CompletableFuture<Void>.
-        getGaramMasalaFromStore = CompletableFuture
-                .runAsync(() -> {
-                    ThreadContext.put(RECIPE_PART, RECIPE_PART_VALUE);
-                    delayMinutes(
-                            30L,
-                            delayReason);
-                });
+        // TODO:
+        //  Uncomment the below code.
+        //  Replace the wildcards ('?') with the proper command
+        // HINT:
+        //  • Use the static CompletableFuture.runAsync() method.
+        //  • Add a ThreadContext for pretty logging:
+        //     • ThreadContext.put(RECIPE_PART, RECIPE_PART_VALUE);
+        //  • Use the delayMinutes(30L, delayReason) from the RecipePart.java
+        //getGaramMasalaFromStore = CompletableFuture
+        //        .r?nA??nc(() -> {
+        //            ThreadContext.put(RECIPE_PART, RECIPE_PART_VALUE);
+        //            delayMinutes(
+        //                    30L,
+        //                    delayReason);
+        //        });
 
         // While the CompletableFuture is not done, other activities can be performed
         // isDone() determines if the CompletableFuture completed (success, failure or exception).
