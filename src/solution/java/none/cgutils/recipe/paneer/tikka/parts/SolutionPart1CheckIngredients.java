@@ -168,7 +168,7 @@ public class SolutionPart1CheckIngredients {
      */
     Future<String> unsuccessfulFindPaprikaPowder() {
 
-        String exceptionMessage = "Paprika Powder not found";
+        String exceptionMessage = "Paprika Powder not found. It was optional anyways!";
 
         Future<String> returnValue = null;
 
